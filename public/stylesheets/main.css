@@ -1,0 +1,19 @@
+#mail {
+   
+}
+
+#result {
+   width: 40%;
+   border: 5px solid black;
+   background-color: tan;
+   padding: 5px;
+   font-size: 40px;
+}
+
+input[id^="zone"]{
+   visibility:hidden;
+}
+
+label {
+   visibility: hidden;
+}

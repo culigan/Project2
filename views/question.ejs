@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta charset="utf-8" />
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script type="text/javascript" src="project2.js"></script>
+   <link type="text/css" href="/stylesheets/main.css" rel="stylesheet">
+   <title>Trivia</title>
+</head>
+<body onload="getQuestion()" >
+   <p>Trivia Question
+   <div id="form1">
+      <form method="get" action="/anwser">
+         <input id="quest" name="quest" type="text" />
+         <input id="textans" name="textans" type="text" />
+         <input id="jeopardy" name="answer" type="submit" value="Submit Answer"/>
+      </form>
+   </div>
+   <div id="anstext">
+   </div>
+   <div id="form2">
+      <form method="get" action="/selection">
+         <input id="back" name="answer" type="button" onclick="goBack()" value="Back"/>
+      </form>
+   </div>
+</body>
+</html>
