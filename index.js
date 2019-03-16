@@ -28,10 +28,11 @@ app.get('/selection', function (request, response) {
 });
 app.get('/question', function (request, response) {
     if (request.query.command == "Play Jeopardy") {
-    
+        var category = request.query.cat;
+        console.log(category);
         var options = {
             value: 200,
-            category: 11502,
+            category: category
         };
         var question = "";
         var answer = "";
