@@ -43,10 +43,10 @@ app.get('/question', function (request, response) {
             else
                 response.status(500).json({ success: false, data: error });
             });
-
+        response.end(response.render('jpage'));
         }
-        else if (request.query.style == "Classic Style")
-            response.render('cpage');
+    else if (request.query.style == "Classic Style")
+        response.render('cpage');
 
 });
 app.get('/answer', function (request, response) {
@@ -88,7 +88,7 @@ function getCategoriesFromDb(id, callback) {
         console.log("Found result: " + JSON.stringify(result.rows));
 
 
-        callback(null, result.rows);
+        callback(null, result);
     });
 
 }
