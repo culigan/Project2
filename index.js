@@ -17,7 +17,8 @@ app.get('/selection', function (request, response) {
     
     if (request.query.style == "Jeopardy Style") {
         getJCategories(request, response);
-        response.render('jpage');
+        //response.end(response.render('jpage'));
+
     }
     else if (request.query.style == "Classic Style")
         response.render('cpage');
@@ -43,7 +44,6 @@ app.get('/question', function (request, response) {
             else
                 response.status(500).json({ success: false, data: error });
             });
-        response.end(response.render('jpage'));
         }
     else if (request.query.style == "Classic Style")
         response.render('cpage');
