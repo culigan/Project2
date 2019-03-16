@@ -13,7 +13,7 @@
       <form method="get" action="/question">         
          <select id="cat" name="cat" style="width:150px;">       
             <%for(var i = 0; i < result.length; i++){%>
-            <option value='<%=result[i].id%>'/><%=result[i].categoryname%></option>
+            <option value='<%=result[i].category_id%>'/><%=result[i].categoryname%></option>
             <%}%>
          </select>
          <select id="diff" name="diff" style="width:150px;">
