@@ -64,6 +64,7 @@ function getJCategories(request, response) {
         if (error || result == null || result.length != 1) {
             response.status(500).json({ success: false, data: error });
         } else {
+            console.log(result);
             response.status(200).json(result);
         }
     });
