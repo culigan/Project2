@@ -12,8 +12,8 @@
    <div id="form1" >
       <form method="get" action="/question">         
          <select id="cat" name="cat" style="width:150px;">       
-            <%for(var i = 0; i < result.length; i++){%>
-            <option value='<%=result[i].category_id%>'/><%=result[i].categoryname%></option>
+            <%for(var i = 0; i < rows.length; i++){%>
+            <option value='<%=rows[i].category_id%>'/><%=rows[i].categoryname%></option>
             <%}%>
          </select>
          <select id="diff" name="diff" style="width:150px;">
