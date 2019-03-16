@@ -70,7 +70,7 @@ function getJCategories(request, response) {
             var rows = result;
             console.log(rows);
             
-            response.render('jpage', { cat: rows, diff: rows });
+            response.render('jpage', rows);
         }
     });
 }
