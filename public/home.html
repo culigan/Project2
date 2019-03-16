@@ -4,12 +4,17 @@
 <head>
    <meta charset="utf-8" />
    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <title>Postage Cost</title>
+   <script type="text/javascript" src="project2.js"></script>
+   <link type="text/css" href="/stylesheets/main.css" rel="stylesheet">
+   <title>Trivia</title>
 </head>
 <body>
-   <form name="mail" action="/getPerson" method="get">
-      <input name="id" type="text" />id <br />
-      <input type="submit" value="Get Person" />
-   </form>
+   <div id="form1">
+   <p>TRIVIA</p>
+      <form method="get" action="/selection">
+         <input id="1" name="style" type="submit" value="Jeopardy Style"/>
+         <input id="2" name="style" type="submit" value="Classic Style"/>
+      </form>
+   </div>
 </body>
 </html>

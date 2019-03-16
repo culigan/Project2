@@ -1,6 +1,3 @@
-function getCategories() {
-
-}
 
 function getQuestion(request, response) {
     var gameType = request.query.command;
