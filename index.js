@@ -64,8 +64,9 @@ function getJCategories(request, response) {
         if (error || result == null || result.length != 1) {
             response.status(500).json({ success: false, data: error });
         } else {
-            console.log(result);
-            response.render('jpage',result);
+            var rows = json(result);
+            console.log(rows);
+            response.render('jpage', rows);
         }
     });
 }
@@ -85,7 +86,7 @@ function getCategoriesFromDb(id, callback) {
             callback(err, null);
         }
 
-        console.log("Found result: " + JSON.stringify(result));
+        console.log("Found result: " + JSON.stringify(result.rows));
 
 
         callback(null, result);
