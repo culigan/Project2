@@ -59,19 +59,19 @@ app.get('/answer', function (request, response) {
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 function getJCategories(request, response) {
-    getCategoriesFromDb(function (error, result) {
+    var id = 0;
+    getCategoriesFromDb(id, function (error, result) {
         if (error || result == null || result.length != 1) {
             response.status(500).json({ success: false, data: error });
         } else {
-            var person = result[0];
-            response.status(200).json(result[0]);
+            response.status(200).json(result);
         }
     });
 }
 
-function getCategoriesFromDb(callback) {
+function getCategoriesFromDb(id, callback) {
     console.log("Getting person from DB with id: " + id);
-    var sql = "SELECT categoryname, category_id FROM jeopardycategories";
+    var sql = "SELECT categoryname, category_id FROM jeopardycategories where category_id != null";
 
 
     const pool = new Pool({ connectionString: connectionString });
