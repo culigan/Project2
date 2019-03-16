@@ -69,11 +69,10 @@ function getJCategories(request, response) {
     });
 }
 
-function getCategoriesFromDb(id, callback) {
+function getCategoriesFromDb(callback) {
     console.log("Getting person from DB with id: " + id);
     var sql = "SELECT categoryname, category_id FROM jeopardycategories";
 
-    var params = [id];
 
     const pool = new Pool({ connectionString: connectionString });
     pool.connect();
