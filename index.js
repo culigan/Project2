@@ -17,7 +17,6 @@ app.get('/selection', function (request, response) {
     
     if (request.query.style == "Jeopardy Style") {
         getJCategories(request, response);
-        getJDifficutly(request, response);
         //response.end(response.render('jpage'));
 
     }
@@ -69,7 +68,6 @@ function getJCategories(request, response) {
         } else {
             var rows = result;
             console.log(rows);
-            
             response.render('jpage', rows);
         }
     });
@@ -87,7 +85,7 @@ function getCategoriesFromDb(id, callback) {
         if (err) {
             console.log("Error in query: ")
             console.log(err);
-            callback(err, null, null);
+            callback(err, null);
         }
 
         console.log("Found result: " + JSON.stringify(result));
