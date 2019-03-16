@@ -17,6 +17,7 @@ app.get('/selection', function (request, response) {
     
     if (request.query.style == "Jeopardy Style") {
         getJCategories(request, response);
+        getJDifficutly(request, response);
         //response.end(response.render('jpage'));
 
     }
@@ -29,9 +30,10 @@ app.get('/selection', function (request, response) {
 app.get('/question', function (request, response) {
     if (request.query.command == "Play Jeopardy") {
         var category = request.query.cat;
+        var difficulty = request.query.diff;
         console.log(category);
         var options = {
-            value: 200,
+            value: difficulty,
             category: category
         };
         var question = "";
@@ -67,7 +69,8 @@ function getJCategories(request, response) {
         } else {
             var rows = result;
             console.log(rows);
-            response.render('jpage', rows);
+            
+            response.render('jpage', { cat: rows, diff: rows });
         }
     });
 }
@@ -84,7 +87,7 @@ function getCategoriesFromDb(id, callback) {
         if (err) {
             console.log("Error in query: ")
             console.log(err);
-            callback(err, null);
+            callback(err, null, null);
         }
 
         console.log("Found result: " + JSON.stringify(result));
