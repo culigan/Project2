@@ -65,7 +65,7 @@ function getJCategories(request, response) {
             response.status(500).json({ success: false, data: error });
         } else {
             console.log(result);
-            response.render('jpage',json(result));
+            response.render('jpage',result);
         }
     });
 }
