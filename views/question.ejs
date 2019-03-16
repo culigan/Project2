@@ -8,12 +8,12 @@
    <link type="text/css" href="/stylesheets/main.css" rel="stylesheet">
    <title>Trivia</title>
 </head>
-<body onload="getQuestion()" >
-   <p>Trivia Question
+<body  >
+   <p></p>
    <div id="form1">
       <form method="get" action="/anwser">
-         <input id="quest" name="quest" type="text" />
-         <input id="textans" name="textans" type="text" />
+         <textarea id="quest" name="quest" type="text" size="200" ><%=answer%></textarea>
+         <input id="textans" name="textans" type="text" size="100" value="<%=question%>"/>
          <input id="jeopardy" name="answer" type="submit" value="Submit Answer"/>
       </form>
    </div>

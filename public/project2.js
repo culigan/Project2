@@ -3,7 +3,7 @@ function getCategories() {
 }
 
 function getQuestion(request, response) {
-    var gameType = require.query.command;
+    var gameType = request.query.command;
     var cat = request.query.cat;
     var diff = request.query.diff;
     var returnQuest = "";
