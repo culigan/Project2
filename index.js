@@ -85,10 +85,10 @@ function getCategoriesFromDb(id, callback) {
             callback(err, null);
         }
 
-        console.log("Found result: " + JSON.stringify(result.rows));
+        console.log("Found result: " + JSON.stringify(result));
 
 
-        callback(null, result.rows);
+        callback(null, result);
     });
 
 }
