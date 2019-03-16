@@ -61,7 +61,7 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 function getJCategories(request, response) {
     var id = 0;
     getCategoriesFromDb(id, function (error, result) {
-        if (error || result == null || result.length != 1) {
+        if (error || result == null ) {
             response.status(500).json({ success: false, data: error });
         } else {
             var rows = result;
