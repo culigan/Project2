@@ -92,7 +92,7 @@ function getCategoriesFromDb(id, callback) {
             console.log("Found result: " + JSON.stringify(result));
 
 
-            callback(null, result);
+            
         }),
         pool.query(sql, function (err, result) {
             if (err) {
@@ -104,8 +104,10 @@ function getCategoriesFromDb(id, callback) {
             console.log("Found result: " + JSON.stringify(result));
 
 
-            callback(null, result);
-        })]);
+            
+        }),
+        callback(null, result)
+    ]);
 }
 
 function getPerson(request, response) {
