@@ -66,23 +66,25 @@ function getJCategories(request, response) {
         if (error || result == null ) {
             response.status(500).json({ success: false, data: error });
         } else {
-            var rows = result;
-            console.log(rows);
-            response.render('jpage', rows);
+            result;
+            console.log(result);
+            response.render('jpage', { rows: result[0], rows2: result[1] });
         }
     });
 }
 
 function getCategoriesFromDb(id, callback) {
     console.log("Getting person from DB with id: " + id);
-    var sql = "SELECT jc.categoryname as name, jc.category_id as cat_id FROM jeopardycategories jc";
-    var sql = "SELECT difficlutylevel as dlevel, levelvalue as vlevel FROM jeopardydifficulty jd";
+    var sql = "SELECT categoryname, category_id FROM jeopardycategories";
+    var sql1 = "SELECT difficlutylevel, levelvalue FROM jeopardydifficulty";
 
 
     const pool = new Pool({ connectionString: connectionString });
     pool.connect();
-    async.parallel([
+
+    pool.query(sql, function (err, result) {
         pool.query(sql, function (err, result) {
+
             if (err) {
                 console.log("Error in query: ")
                 console.log(err);
@@ -92,22 +94,10 @@ function getCategoriesFromDb(id, callback) {
             console.log("Found result: " + JSON.stringify(result));
 
 
-            
-        }),
-        pool.query(sql, function (err, result) {
-            if (err) {
-                console.log("Error in query: ")
-                console.log(err);
-                callback(err, null);
-            }
+            callback(null, result);
+        });
+    });
 
-            console.log("Found result: " + JSON.stringify(result));
-
-
-            
-        }),
-        callback(null, result)
-    ]);
 }
 
 function getPerson(request, response) {
