@@ -66,9 +66,8 @@ function getJCategories(request, response) {
         if (error || result == null ) {
             response.status(500).json({ success: false, data: error });
         } else {
-            result;
-            console.log(result);
-            response.render('jpage', { rows: result[0], rows2: result[1] });
+            console.log("second" + result);
+            response.render('jpage', result);
         }
     });
 }
@@ -82,8 +81,8 @@ function getCategoriesFromDb(id, callback) {
     const pool = new Pool({ connectionString: connectionString });
     pool.connect();
 
-    pool.query(sql, function (err, result) {
-        pool.query(sql, function (err, result) {
+    pool.query(sql, function (err, result1) {
+        pool.query(sql1, function (err, result2) {
 
             if (err) {
                 console.log("Error in query: ")
@@ -91,10 +90,11 @@ function getCategoriesFromDb(id, callback) {
                 callback(err, null);
             }
 
-            console.log("Found result: " + JSON.stringify(result));
+            console.log("Found result: " + JSON.stringify(result1));
+            console.log("Found result: " + JSON.stringify(result2));
 
 
-            callback(null, result);
+            callback(null, { rows: result1, rows2: result2 });
         });
     });
 
