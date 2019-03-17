@@ -75,25 +75,37 @@ function getJCategories(request, response) {
 
 function getCategoriesFromDb(id, callback) {
     console.log("Getting person from DB with id: " + id);
-    var sql = "SELECT jc.categoryname as name, jc.category_id as cat_id, jd.difficlutylevel as dlevel, jd.levelvalue as vlevel FROM jeopardycategories dc, jeopardydifficulty jd";
+    var sql = "SELECT jc.categoryname as name, jc.category_id as cat_id FROM jeopardycategories dc";
+    var sql = "SELECT difficlutylevel as dlevel, levelvalue as vlevel FROM jeopardydifficulty jd";
 
 
     const pool = new Pool({ connectionString: connectionString });
     pool.connect();
+    async.parallel([
+        pool.query(sql, function (err, result) {
+            if (err) {
+                console.log("Error in query: ")
+                console.log(err);
+                callback(err, null);
+            }
 
-    pool.query(sql, function (err, result) {
-        if (err) {
-            console.log("Error in query: ")
-            console.log(err);
-            callback(err, null);
-        }
-
-        console.log("Found result: " + JSON.stringify(result));
+            console.log("Found result: " + JSON.stringify(result));
 
 
-        callback(null, result);
-    });
+            callback(null, result);
+        }),
+        pool.query(sql, function (err, result) {
+            if (err) {
+                console.log("Error in query: ")
+                console.log(err);
+                callback(err, null);
+            }
 
+            console.log("Found result: " + JSON.stringify(result));
+
+
+            callback(null, result);
+        })]);
 }
 
 function getPerson(request, response) {
