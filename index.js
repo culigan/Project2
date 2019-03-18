@@ -16,7 +16,7 @@ app.get('/', function (request, response) {
 app.get('/selection', function (request, response) {
     var result1;
     var options = {
-        count: 20,
+        count: 200,
         offset: 0
     };
     if (request.query.style == "Jeopardy Style") {
@@ -86,7 +86,7 @@ function getJCategories(request, response, result1) {
 }
 
 function getCategoriesFromDb(result1, callback) {
-    console.log("Getting person from DB with id: " + id);
+    console.log("Getting person from DB with id: " + result1);
     var sql = "SELECT categoryname, category_id FROM jeopardycategories";
     var sql1 = "SELECT difficultylevel, levelvalue FROM jeopardydifficulty";
     
