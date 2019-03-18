@@ -27,7 +27,7 @@ app.get('/selection', function (request, response) {
             } else {
                 console.log('Error:' + res.statusCode);
             }
-        }
+        });
         getJCategories(request, response, result1);
         //response.end(response.render('jpage'));
 
