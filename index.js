@@ -102,12 +102,12 @@ function getCategoriesFromDb(result1, callback) {
             callback(err, null);
         }
 
-        //sendResult = {rows: sendResult };
-        console.log("Found result: " + JSON.stringify(result1));
+        sendResult = {rows: sendResult };
+        console.log("Found result: " + JSON.stringify(sendResult));
         console.log("Found result: " + JSON.stringify(result2));
 
 
-        callback(null, { rows: { rows: sendResult }, rows2: result2});
+        callback(null, { rows: sendResult, rows2: result2});
     });
 
 }
