@@ -38,6 +38,7 @@ app.get('/question', function (request, response) {
         var question = "";
         var answer = "";
 
+        
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
@@ -76,13 +77,16 @@ function getCategoriesFromDb(id, callback) {
     console.log("Getting person from DB with id: " + id);
     var sql = "SELECT categoryname, category_id FROM jeopardycategories";
     var sql1 = "SELECT difficultylevel, levelvalue FROM jeopardydifficulty";
-
+    var options = {
+        count: 20,
+        offset: 0
+    };
 
     const pool = new Pool({ connectionString: connectionString });
     pool.connect();
 
-    pool.query(sql, function (err, result1) {
-        pool.query(sql1, function (err, result2) {
+    pool.query(sql1, function (err, result2) {
+        jserv.categories(options, function (err, result1) {
 
             if (err) {
                 console.log("Error in query: ")
