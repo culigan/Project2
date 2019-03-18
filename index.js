@@ -14,7 +14,6 @@ app.get('/', function (request, response) {
     response.sendFile(__dirname + '/public/home.html');
 });
 app.get('/selection', function (request, response) {
-    var result1;
     var options = {
         count: 20,
         offset: 0
@@ -23,12 +22,12 @@ app.get('/selection', function (request, response) {
         jserv.categories(options, function (err, res, result) {
             if (!err && res.statusCode == 200) {
                 console.log(result);
-                result1 = result;
+                getJCategories(request, response, result);
             } else {
                 console.log('Error:' + res.statusCode);
             }
         });
-        getJCategories(request, response, result1);
+        
         //response.end(response.render('jpage'));
 
     }
@@ -94,7 +93,7 @@ function getCategoriesFromDb(result1, callback) {
     const pool = new Pool({ connectionString: connectionString });
     pool.connect();
 
-    pool.query(sql1, function (err, result2) {
+    pool.query(sql1, function (err, result2, result1) {
 
         if (err) {
             console.log("Error in query: ")
@@ -102,7 +101,7 @@ function getCategoriesFromDb(result1, callback) {
             callback(err, null);
         }
 
-        result1 = "'rows': " + result1;
+        //result1 = "rows: " + result1;
         console.log("Found result: " + JSON.stringify(result1));
         console.log("Found result: " + JSON.stringify(result2));
 
