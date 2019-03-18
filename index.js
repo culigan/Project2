@@ -108,7 +108,7 @@ function getCategoriesFromDb(result1, callback) {
         console.log("Found result: " + JSON.stringify(result2));
 
 
-        callback(null, { rows: sendResult, rows2: result2});
+        callback(null, { rows: JSON.parse(sendResult), rows2: result2});
     });
 
 }
