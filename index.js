@@ -102,7 +102,7 @@ function getCategoriesFromDb(result1, callback) {
             callback(err, null);
         }
 
-        result1 = "rows: " + result1;
+        result1 = "'rows': " + result1;
         console.log("Found result: " + JSON.stringify(result1));
         console.log("Found result: " + JSON.stringify(result2));
 
