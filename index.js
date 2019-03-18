@@ -85,7 +85,7 @@ function getJCategories(request, response, result1) {
 }
 
 function getCategoriesFromDb(result1, callback) {
-    console.log("Getting person from DB with id:" + result1);
+    console.log(result1);
     var sql = "SELECT categoryname, category_id FROM jeopardycategories";
     var sql1 = "SELECT difficultylevel, levelvalue FROM jeopardydifficulty";
     
