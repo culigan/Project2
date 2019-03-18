@@ -96,18 +96,17 @@ function getCategoriesFromDb(result1, callback) {
 
     pool.query(sql1, function (err, result2) {
 
-            if (err) {
-                console.log("Error in query: ")
-                console.log(err);
-                callback(err, null);
-            }
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+            callback(err, null);
+        }
 
-            //console.log("Found result: " + JSON.stringify(result1));
-            console.log("Found result: " + JSON.stringify(result2));
+        //console.log("Found result: " + JSON.stringify(result1));
+        console.log("Found result: " + JSON.stringify(result2));
 
 
         callback(null, { rows: result1, rows2: result2 });
-        });
     });
 
 }
