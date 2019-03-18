@@ -86,7 +86,7 @@ function getCategoriesFromDb(id, callback) {
     pool.connect();
 
     pool.query(sql1, function (err, result2) {
-        jserv.categories(options, function (err, result1) {
+        jserv.categories(options, function (err, res, result1) {
 
             if (err) {
                 console.log("Error in query: ")
