@@ -14,20 +14,9 @@ app.get('/', function (request, response) {
     response.sendFile(__dirname + '/public/home.html');
 });
 app.get('/selection', function (request, response) {
-    var options = {
-        count: 20,
-        offset: 0
-    };
     if (request.query.style == "Jeopardy Style") {
-        jserv.categories(options, function (err, res, result) {
-            if (!err && res.statusCode == 200) {
-                console.log(result);
-                getJCategories(request, response, result);
-            } else {
-                console.log('Error:' + res.statusCode);
-            }
-        });
         
+        getJCategories(request, response);
         //response.end(response.render('jpage'));
 
     }
@@ -72,15 +61,24 @@ app.get('/answer', function (request, response) {
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-function getJCategories(request, response, result1) {
-    console.log(result1);
+function getJCategories(request, response) {
+    
     getCategoriesFromDb(result1, function (error, result) {
         if (error || result == null ) {
             response.status(500).json({ success: false, data: error });
         } else {
 
+            jserv.categories(options, function (err, res, result2) {
+                if (!err && res.statusCode == 200) {
+                    console.log(result);
+                    console.log(result2);
+                    response.render('jpage', { rows: result2, rows: result });
+                } else {
+                    console.log('Error:' + res.statusCode);
+                }
+            });
+
             console.log(result);
-            response.render('jpage', result);
         }
     });
 }
@@ -103,12 +101,11 @@ function getCategoriesFromDb(result1, callback) {
             callback(err, null);
         }
 
-        sendResult = {rows: sendResult };
-        console.log("Found result: " + JSON.stringify(sendResult));
+
         console.log("Found result: " + JSON.stringify(result2));
 
 
-        callback(null, { rows: JSON.parse(sendResult), rows2: result2});
+        callback(null, result2);
     });
 
 }
