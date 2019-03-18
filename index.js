@@ -15,7 +15,7 @@ app.get('/', function (request, response) {
 });
 app.get('/selection', function (request, response) {
     var options = {
-        count: 20,
+        count: 500,
         offset: 0
     };
     if (request.query.style == "Jeopardy Style") {
@@ -101,7 +101,7 @@ function getCategoriesFromDb(result1, callback) {
             callback(err, null);
         }
 
-        //result1 = "rows: " + result1;
+        result1 = "rows: " + result1;
         console.log("Found result: " + JSON.stringify(result1));
         console.log("Found result: " + JSON.stringify(result2));
 
