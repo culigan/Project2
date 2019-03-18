@@ -73,7 +73,7 @@ app.get('/answer', function (request, response) {
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 function getJCategories(request, response, result1) {
-    
+    console.log(result1);
     getCategoriesFromDb(result1, function (error, result) {
         if (error || result == null ) {
             response.status(500).json({ success: false, data: error });
