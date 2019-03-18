@@ -86,6 +86,7 @@ function getJCategories(request, response, result1) {
 
 function getCategoriesFromDb(result1, callback) {
     console.log(result1);
+    sendResult = result1;
     var sql = "SELECT categoryname, category_id FROM jeopardycategories";
     var sql1 = "SELECT difficultylevel, levelvalue FROM jeopardydifficulty";
     
@@ -101,12 +102,12 @@ function getCategoriesFromDb(result1, callback) {
             callback(err, null);
         }
 
-        result1 = {rows: result };
+        sendResult = {rows: sendResult };
         console.log("Found result: " + JSON.stringify(result1));
         console.log("Found result: " + JSON.stringify(result2));
 
 
-        callback(null, { rows: result1, rows2: result2});
+        callback(null, { rows: sendResult, rows2: result2});
     });
 
 }
