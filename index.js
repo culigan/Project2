@@ -78,7 +78,7 @@ function getJCategories(request, response, result1) {
         if (error || result == null ) {
             response.status(500).json({ success: false, data: error });
         } else {
-            console.log("second" + result);
+            console.log(result);
             response.render('jpage', result);
         }
     });
