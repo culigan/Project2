@@ -14,8 +14,8 @@ app.get('/', function (request, response) {
     response.sendFile(__dirname + '/public/home.html');
 });
 app.get('/selection', function (request, response) {
+    
     if (request.query.style == "Jeopardy Style") {
-        
         getJCategories(request, response);
         //response.end(response.render('jpage'));
 
@@ -38,7 +38,6 @@ app.get('/question', function (request, response) {
         var question = "";
         var answer = "";
 
-        
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
@@ -62,50 +61,41 @@ app.get('/answer', function (request, response) {
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 function getJCategories(request, response) {
-    
-    getCategoriesFromDb(result1, function (error, result) {
+    var id = 0;
+    getCategoriesFromDb(id, function (error, result) {
         if (error || result == null ) {
             response.status(500).json({ success: false, data: error });
         } else {
-
-            jserv.categories(options, function (err, res, result2) {
-                if (!err && res.statusCode == 200) {
-                    console.log(result);
-                    console.log(result2);
-                    response.render('jpage', { rows: result2, rows: result });
-                } else {
-                    console.log('Error:' + res.statusCode);
-                }
-            });
-
-            console.log(result);
+            console.log("second" + result);
+            response.render('jpage', result);
         }
     });
 }
 
-function getCategoriesFromDb(result1, callback) {
-    console.log(result1);
-    sendResult = result1;
+function getCategoriesFromDb(id, callback) {
+    console.log("Getting person from DB with id: " + id);
     var sql = "SELECT categoryname, category_id FROM jeopardycategories";
     var sql1 = "SELECT difficultylevel, levelvalue FROM jeopardydifficulty";
-    
+
 
     const pool = new Pool({ connectionString: connectionString });
     pool.connect();
 
-    pool.query(sql1, function (err, result2) {
+    pool.query(sql, function (err, result1) {
+        pool.query(sql1, function (err, result2) {
 
-        if (err) {
-            console.log("Error in query: ")
-            console.log(err);
-            callback(err, null);
-        }
+            if (err) {
+                console.log("Error in query: ")
+                console.log(err);
+                callback(err, null);
+            }
+
+            console.log("Found result: " + JSON.stringify(result1));
+            console.log("Found result: " + JSON.stringify(result2));
 
 
-        console.log("Found result: " + JSON.stringify(result2));
-
-
-        callback(null, result2);
+            callback(null, { rows: result1.rows, rows2: result2.rows });
+        });
     });
 
 }
