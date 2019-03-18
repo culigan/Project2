@@ -21,7 +21,7 @@ app.get('/selection', function (request, response) {
     };
     if (request.query.style == "Jeopardy Style") {
         jserv.categories(options, function (err, res, result) {
-            if (!error && res.statusCode == 200) {
+            if (!err && res.statusCode == 200) {
                 console.log(result);
                 result1 = result;
             } else {
