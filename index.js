@@ -93,7 +93,7 @@ function getCategoriesFromDb(result1, callback) {
     const pool = new Pool({ connectionString: connectionString });
     pool.connect();
 
-    pool.query(sql1, function (err, result2, result1) {
+    pool.query(sql1, function (err, result2, result) {
 
         if (err) {
             console.log("Error in query: ")
@@ -101,7 +101,7 @@ function getCategoriesFromDb(result1, callback) {
             callback(err, null);
         }
 
-        result1 = {rows: result1 };
+        result1 = {rows: result };
         console.log("Found result: " + JSON.stringify(result1));
         console.log("Found result: " + JSON.stringify(result2));
 
