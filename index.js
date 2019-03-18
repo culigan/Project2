@@ -16,7 +16,7 @@ app.get('/', function (request, response) {
 app.get('/selection', function (request, response) {
     var result1;
     var options = {
-        count: 200,
+        count: 20,
         offset: 0
     };
     if (request.query.style == "Jeopardy Style") {
