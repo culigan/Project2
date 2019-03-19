@@ -41,7 +41,7 @@ app.get('/question', function (request, response) {
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
-                response.render('question', ({category: category, difficulty: difficulty answer: data[0].answer}));
+                response.render('question', ({category: category, difficulty: difficulty, answer: data[0].answer}));
             }
             else
                 response.status(500).json({ success: false, data: error });
