@@ -30,6 +30,7 @@ app.get('/question', function (request, response) {
     if (request.query.command == "Play Jeopardy") {
         var category = request.query.cat;
         var difficulty = request.query.diff;
+        var catname = request.body.cat;
         console.log(category);
         var options = {
             value: difficulty,
