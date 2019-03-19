@@ -33,8 +33,7 @@ app.get('/question', function (request, response) {
     if (request.query.command == "Play Jeopardy") {
         var category = request.query.cat;
         var difficulty = request.query.diff;
-        var catname = request.body;
-        console.log(catname);
+
         var options = {
             value: difficulty,
             category: category
@@ -45,7 +44,11 @@ app.get('/question', function (request, response) {
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
-                response.render('question', ({category: category, difficulty: difficulty, answer: data[0].answer}));
+                jserv.category(category, function (errorT, responseT, resultTitle) {
+                    if (!errorT && responseT.statusCode == 200) {
+                        response.render('question', ({ category: resultTitle.title, difficulty: difficulty, answer: data[0].answer }));
+                    }
+                });
             }
             else
                 response.status(500).json({ success: false, data: error });
