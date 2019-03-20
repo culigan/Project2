@@ -13,7 +13,7 @@
    color:white;
    padding: 5px;
    font-size: 30px;
-   align-content:center;
+   align-items:center;
 }
 
 input[id^="zone"]{
