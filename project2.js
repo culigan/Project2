@@ -1,4 +1,4 @@
-function getCategories() {
+function getAnswer() {
 
 }
 
