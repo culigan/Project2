@@ -3,11 +3,15 @@
 }
 
 body {
+   background-color: blue;
    width: 100%;
 }
 
+#jeopardy, #back{
+   font-size:30px;
+}
+
 #quest, #textans{
-   background-color:blue;
    font-size:50px;
    
 }
