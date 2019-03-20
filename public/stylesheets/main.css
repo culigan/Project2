@@ -2,27 +2,27 @@
    
 }
 
-body{
-   width:100%;
+body {
+   width: 100%;
 }
 
 #quest, #textans{
    background-color:blue;
-   color:white;
+   font-size:50px;
+   
 }
 
 #title {
-   font-size: 40px;
+   font-size: 60px;
    color:yellow;
 }
 
 #text {
    display:flex;
    flex-direction:column;
-   background-color: blue;
    color:white;
    padding: 5px;
-   font-size: 30px;
+   font-size: 50px;
    align-items:center;
 }
 
