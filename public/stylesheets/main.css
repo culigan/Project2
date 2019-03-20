@@ -2,13 +2,23 @@
    
 }
 
+body{
+   width:100%;
+}
+
+#quest, #textans{
+   background-color:blue;
+   color:white;
+}
+
 #title {
    font-size: 40px;
+   color:yellow;
 }
+
 #text {
    display:flex;
    flex-direction:column;
-   width: 40%;
    background-color: blue;
    color:white;
    padding: 5px;
