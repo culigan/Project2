@@ -66,7 +66,7 @@ app.get('/question', function (request, response) {
             + difficulty + '&category=' + category;
         getRequest(urlReqest, function (error, resp, body) {
             if (resp != null && resp.statusCode == 200) {
-                response.render('questionClassic', body);
+                response.render('questionClassic', JSON.parse(body));
             }
             else {
                 console.log("Error: " + resp.statusCode);
