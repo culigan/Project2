@@ -11,7 +11,7 @@
 }
 
 .item4 {
-   grid-area: right;
+   display:hidden;
 }
 
 .item5 {
