@@ -68,7 +68,7 @@ app.get('/question', function (request, response) {
 
         getRequest.get(urlReqest).on('response', function (resp) {
             if (resp.statusCode == 200) {
-                console.log(resp.body)
+                console.log(resp.json(JSON.parse(resp.body)));
             }
             else
                 console.log(resp.statusCode);
