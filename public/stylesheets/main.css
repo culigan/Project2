@@ -18,16 +18,20 @@
    grid-area: footer;
 }
 .container{
+   margin-left:10px;
+   margin-right:10px;
    display:grid;
-   grid-template-areas:'header header header header header header'
-      'menu menu main main right right'
-      'menu menu footer footer footer footer';
+   grid-template-areas:'header header header header header'
+      'menu menu main main main'
+      'menu menu footer footer footer';
    background-color:lightskyblue;
    grid-gap:5px;
 }
 
 .container > div{
    background-color:rgba(255, 255, 255, .8);
+   align-items:center;
+   text-align:center;
 }
 #header{
 
