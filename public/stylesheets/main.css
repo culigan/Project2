@@ -25,7 +25,7 @@ body{
    text-align:center;
 }
 
-.container > div {
+.container > form {
    font-size:50px;
    text-align: center;
 }
