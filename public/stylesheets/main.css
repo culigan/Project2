@@ -70,6 +70,3 @@ input[id^="zone"]{
    visibility:hidden;
 }
 
-label {
-   visibility: hidden;
-}
