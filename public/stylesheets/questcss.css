@@ -6,15 +6,24 @@
    grid-area: menu;
 }
 
-body{
-   background-color:lightskyblue;
+.item3 {
+   grid-area: main;
+}
+
+.item4 {
+   display:hidden;
+}
+
+.item5 {
+   grid-area: footer;
 }
 .container{
    margin-left:10px;
    margin-right:10px;
    display:grid;
-   grid-template-areas:'header header'
-      'menu menu';
+   grid-template-areas:'header header header header header'
+      'menu menu main main main'
+      'menu menu footer footer footer';
    background-color:lightskyblue;
    grid-gap:5px;
 }
