@@ -64,14 +64,15 @@ app.get('/question', function (request, response) {
         var getRequest = require('request');
         var urlReqest = "https://opentdb.com/api.php?amount=1&difficulty="
             + difficulty + '&category=' + category;
-        console.log(urlReqest);
-
-        getRequest.get(urlReqest).on('response', function (resp) {
-            if (resp.statusCode == 200) {
-                console.log(resp.json(JSON.parse(resp.body)));
+        getRequest(urlReqest, function (error, resp, body) {
+            if (resp != null && resp.statusCode == 200) {
+                console.log(body);
             }
-            else
-                console.log(resp.statusCode);
+            else {
+                console.log("Error: " + resp.statusCode);
+            }
+        }
+        
         });
     }
 
