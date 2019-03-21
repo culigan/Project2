@@ -67,6 +67,7 @@ app.get('/question', function (request, response) {
         getRequest(urlReqest, function (error, resp, body) {
             if (resp != null && resp.statusCode == 200) {
                 console.log(Math.random(4));
+                console.log(JSON.parse(body));
                 response.render('questionClassic', JSON.parse(body));
             }
             else {
