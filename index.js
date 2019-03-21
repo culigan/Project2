@@ -57,7 +57,8 @@ app.get('/question', function (request, response) {
                 response.status(500).json({ success: false, data: error });
         });
     }
-    else if (request.query.style == "Play Classic") {
+    else if (request.query.command == "Play Classic") {
+        console.log("Classic");
         var category = request.query.cat;
         var difficulty = request.query.diff;
         var getRequest = require('request');
