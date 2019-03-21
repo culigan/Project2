@@ -57,7 +57,17 @@ app.get('/question', function (request, response) {
         });
     }
     else if (request.query.style == "Classic Style") {
-        response.render('cpage');
+        var category = request.query.cat;
+        var difficulty = request.query.diff;
+        var getRequest = require('request');
+
+        getRequest.get('https://opentdb.com/api.php?amount=1&difficulty='
+            + difficulty + '&category=' + category).on('response', function (resp) {
+                if (resp.statusCode == 200) {
+                    console.log(resp.body);
+
+                }
+            })
     }
 
 });
