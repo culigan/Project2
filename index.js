@@ -60,9 +60,11 @@ app.get('/question', function (request, response) {
         var category = request.query.cat;
         var difficulty = request.query.diff;
         var getRequest = require('request');
+        var urlReqest = "https://opentdb.com/api.php?amount=1&difficulty="
+            + difficulty + '&category=' + category;
+        console.log(urlReqest);
 
-        getRequest.get('https://opentdb.com/api.php?amount=1&difficulty='
-            + difficulty + '&category=' + category).on('response', function (resp) {
+        getRequest.get(urlReqest).on('response', function (resp) {
                 if (resp.statusCode == 200) {
                     console.log(resp.body)
                 }
