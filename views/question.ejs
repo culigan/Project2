@@ -10,8 +10,8 @@
 </head>
 <body  >
    <div class="container">
-      <div class="head">
-         <H1 class="item1" id="header">Jeopardy Trivia</H1>
+      <div class="item1">
+         <H1 id="header">Jeopardy Trivia</H1>
       </div>
       <div class="item2" id="theader">
          <p id="title">Catetory: <%=category%></br>Point Value: <%=difficulty%></p></br>
@@ -20,11 +20,11 @@
          <textarea rows="4" cols="50" id="quest" name="quest" type="text" ><%=question%></textarea>
          <input id="hanswer" name="textans" type="hidden" value="<%=answer%>"/>
          <textarea rows="4" cols="50" id="textans" name="textans" type="text" value=""></textarea>
-         <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getAnswer()"/>
       </div>
       <div class="item4" id="anstext">
       </div>
       <div class="item5" id="form2">
+         <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getAnswer()"/>
          <input id="back" name="answer" type="button" onclick="goBack()" value="Back"/>
       </div>
    </div>
