@@ -17,10 +17,13 @@
          <p id="title">Catetory: <%=results[0].category%></br>Point Value: <%=results[0].difficulty%></p></br>
       </div>
       <div class="item3" id="text">
-         <label for="quest">Question</label>
          <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=results[0].question%></textarea>
-         <label for="texans">Answer</label>
-         <radio id="textans" name="textans" value=""><%=results[0].correct_answer%></textarea>
+         <%var number = Math.random(4); for(int i = 0; i < results[0].wrong_answer; i++){%>
+         <%if(i == number){%>
+         <radio id="textans" name="textans" value="<%=results[0].wrong_answer[i]%>"><%=results[0].wrong_answer[i]%>
+         <%}else{%>
+         <radio id="textans" name="textans" value="<%=results[0].wrong_answer[i]%>"><%=results[0].wrong_answer[i]%>
+         <%}}%>
       </div>
       <div class="item4" id="anstext">
       </div>
