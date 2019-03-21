@@ -1,8 +1,31 @@
-#mail {
-   
+.item1 {
+   grid-area: header;
 }
 
+.item2 {
+   grid-area: menu;
+}
+
+.item3 {
+   grid-area: main;
+}
+
+.item4 {
+   grid-area: right;
+}
+
+.item5 {
+   grid-area: footer;
+}
+.container{
+   display:grid;
+   grid-template-areas:'header header header header header header'
+      'menu main main main right right'
+      'menu footer footer footer footer footer';
+
+}
 #header{
+
    background-color:white;
    font-family:Courier New, Courier, monospace;
    font-size:60px;
@@ -11,11 +34,7 @@
    border-bottom:5px solid black;
 }
 
-body {
-   background-color: blue;
-   width:auto;
-   margin: auto;
-}
+
 
 #jeopardy, #back{
    font-size:30px;
@@ -32,8 +51,6 @@ body {
 }
 
 #text {
-   display:flex;
-   flex-direction:column;
    color:white;
    padding: 5px;
    font-size: 50px;

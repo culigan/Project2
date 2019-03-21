@@ -9,20 +9,22 @@
    <title>Trivia</title>
 </head>
 <body  >
-   <H1 id="header">Jeopardy Trivia</H1>
-   <div id="text">
-      <p id="title">Catetory: <%=category%></br>Point Value: <%=difficulty%></p></br>
-      <textarea rows="4" cols="50" id="quest" name="quest" type="text" ><%=question%></textarea>
-      <input id="hanswer" name="textans" type="hidden" value="<%=answer%>"/>
-      <textarea rows="4" cols="50" id="textans" name="textans" type="text" value=""></textarea>
-      <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getAnswer()"/>
-   </div>
-   <div id="anstext">
-   </div>
-   <div id="form2">
-      <form method="get" action="/selection">
+   <div class="container">
+      <H1 class="item1" id="header">Jeopardy Trivia</H1>
+      <div class="item2" id="theader">
+         <p id="title">Catetory: <%=category%></br>Point Value: <%=difficulty%></p></br>
+      </div>
+      <div class="item3" id="text">
+         <textarea rows="4" cols="50" id="quest" name="quest" type="text" ><%=question%></textarea>
+         <input id="hanswer" name="textans" type="hidden" value="<%=answer%>"/>
+         <textarea rows="4" cols="50" id="textans" name="textans" type="text" value=""></textarea>
+         <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getAnswer()"/>
+      </div>
+      <div class="item4" id="anstext">
+      </div>
+      <div class="item5" id="form2">
          <input id="back" name="answer" type="button" onclick="goBack()" value="Back"/>
-      </form>
+      </div>
    </div>
 </body>
 </html>
