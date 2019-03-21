@@ -24,7 +24,8 @@ app.get('/selection', function (request, response) {
 
     }
     else if (request.query.style == "Classic Style") {
-        response.render('cpage');
+        getCCategories(request, response);
+        //response.render('cpage');
     }
     //else if (request.query.command == "Back" || request.query.answer == "Back")
     //    response.render('home');
@@ -56,9 +57,7 @@ app.get('/question', function (request, response) {
         });
     }
     else if (request.query.style == "Classic Style") {
-        console.log('get in classic');
-        getCCategories(request, response);
-        //response.render('cpage');
+        response.render('cpage');
     }
 
 });
