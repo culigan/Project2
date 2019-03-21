@@ -2,6 +2,12 @@
    
 }
 
+#header{
+   font-family:Courier New, Courier, monospace;
+   font-size:60px;
+   color:red;
+}
+
 body {
    background-color: blue;
    width:auto;
