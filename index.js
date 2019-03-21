@@ -43,7 +43,7 @@ app.get('/question', function (request, response) {
         };
         var question = "";
         var answer = "";
-
+        
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
@@ -66,12 +66,13 @@ app.get('/question', function (request, response) {
             + difficulty + '&category=' + category;
         getRequest(urlReqest, function (error, resp, body) {
             if (resp != null && resp.statusCode == 200) {
+                Math.random(0, 4);
                 response.render('questionClassic', JSON.parse(body));
             }
             else {
                 console.log("Error: " + resp.statusCode);
             }
-        
+            Math.random(0, 4);
         
         });
     }
