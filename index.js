@@ -23,8 +23,9 @@ app.get('/selection', function (request, response) {
         //response.end(response.render('jpage'));
 
     }
-    else if (request.query.style == "Classic Style")
+    else if (request.query.style == "Classic Style") {
         response.render('cpage');
+    }
     //else if (request.query.command == "Back" || request.query.answer == "Back")
     //    response.render('home');
     
@@ -52,10 +53,12 @@ app.get('/question', function (request, response) {
             }
             else
                 response.status(500).json({ success: false, data: error });
-            });
-        }
-    else if (request.query.style == "Classic Style")
+        });
+    }
+    else if (request.query.style == "Classic Style") {
+        getCCategories(request, response);
         response.render('cpage');
+    }
 
 });
 app.get('/answer', function (request, response) {
@@ -66,6 +69,46 @@ app.get('/answer', function (request, response) {
 });
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+function getJCategories(request, response) {
+    var id = 0;
+    getCCategoriesFromDb(id, function (error, result) {
+        if (error || result == null) {
+            response.status(500).json({ success: false, data: error });
+        } else {
+            console.log("second" + result);
+            response.render('cpage', result);
+        }
+    });
+}
+
+function getCCategoriesFromDb(id, callback) {
+    console.log("Getting person from DB with id: " + id);
+    var sql = "SELECT categoryname FROM classiccategories";
+    var sql1 = "SELECT diffname FROM classicdifficulty";
+
+
+    const pool = new Pool({ connectionString: connectionString });
+    pool.connect();
+
+    pool.query(sql, function (err, result1) {
+        pool.query(sql1, function (err, result2) {
+
+            if (err) {
+                console.log("Error in query: ")
+                console.log(err);
+                callback(err, null);
+            }
+
+            console.log("Found result: " + JSON.stringify(result1));
+            console.log("Found result: " + JSON.stringify(result2));
+
+
+            callback(null, { rows: result1.rows, rows2: result2.rows });
+        });
+    });
+
+}
 
 function getJCategories(request, response) {
     var id = 0;
