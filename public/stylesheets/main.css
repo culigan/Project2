@@ -3,9 +3,12 @@
 }
 
 #header{
+   background-color:white;
    font-family:Courier New, Courier, monospace;
    font-size:60px;
    color:red;
+   text-align:center;
+   border-bottom:5px solid black;
 }
 
 body {
