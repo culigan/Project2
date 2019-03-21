@@ -20,8 +20,8 @@
 .container{
    display:grid;
    grid-template-areas:'header header header header header header'
-      'menu main main main right right'
-      'menu footer footer footer footer footer';
+      'menu menu main main right right'
+      'menu menu footer footer footer footer';
 
 }
 #header{
@@ -37,12 +37,11 @@
 
 
 #jeopardy, #back{
-   font-size:30px;
+   font-size:20px;
 }
 
 #quest, #textans{
-   font-size:50px;
-   margin:auto;
+   font-size:20px;
 }
 
 #title {
