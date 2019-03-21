@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta charset="utf-8" />
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script type="text/javascript" src="project2.js"></script>
+   <link type="text/css" href="/stylesheets/questcss.css" rel="stylesheet">
+   <title>Trivia</title>
+</head>
+<body  >
+   <div class="container">
+      <div class="item1">
+         <H1 id="header">Jeopardy Trivia</H1>
+      </div>
+      <div class="item2" id="theader">
+         <p id="title">Catetory: <%=results[0].category%></br>Point Value: <%=results[0].difficulty%></p></br>
+      </div>
+      <div class="item3" id="text">
+         <label for="quest">Question</label>
+         <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=results[0].question%></textarea>
+         <label for="texans">Answer</label>
+         <radio id="textans" name="textans" value=""><%=results[0].correct_answer%></textarea>
+      </div>
+      <div class="item4" id="anstext">
+      </div>
+      <div class="item5" id="form2">
+         <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getAnswer()"/>
+         <input id="back" name="answer" type="button" onclick="goBack()" value="Back"/>
+      </div>
+   </div>
+</body>
+</html>
