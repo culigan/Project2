@@ -64,9 +64,10 @@ app.get('/question', function (request, response) {
         getRequest.get('https://opentdb.com/api.php?amount=1&difficulty='
             + difficulty + '&category=' + category).on('response', function (resp) {
                 if (resp.statusCode == 200) {
-                    console.log(resp.body);
-
+                    console.log(resp.body)
                 }
+                else
+                    console.log(resp.statusCode);
             })
     }
 
