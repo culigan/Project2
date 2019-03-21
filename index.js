@@ -32,6 +32,7 @@ app.get('/selection', function (request, response) {
     
 });
 app.get('/question', function (request, response) {
+
     if (request.query.command == "Play Jeopardy") {
         var category = request.query.cat;
         var difficulty = request.query.diff;
@@ -65,12 +66,12 @@ app.get('/question', function (request, response) {
         console.log(urlReqest);
 
         getRequest.get(urlReqest).on('response', function (resp) {
-                if (resp.statusCode == 200) {
-                    console.log(resp.body)
-                }
-                else
-                    console.log(resp.statusCode);
-            })
+            if (resp.statusCode == 200) {
+                console.log(resp.body)
+            }
+            else
+                console.log(resp.statusCode);
+        });
     }
 
 });
