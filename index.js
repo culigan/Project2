@@ -57,7 +57,7 @@ app.get('/question', function (request, response) {
     }
     else if (request.query.style == "Classic Style") {
         getCCategories(request, response);
-        response.render('cpage');
+        //response.render('cpage');
     }
 
 });
@@ -70,7 +70,7 @@ app.get('/answer', function (request, response) {
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-function getJCategories(request, response) {
+function getCCategories(request, response) {
     var id = 0;
     getCCategoriesFromDb(id, function (error, result) {
         if (error || result == null) {
