@@ -69,7 +69,7 @@ app.get('/question', function (request, response) {
             if (resp != null && resp.statusCode == 200) {
                 var number = parseInt(Math.random(4));
                 console.log(number);
-                console.log(JSON.parse(body));
+                console.log(JSON.stringify(JSON.parse(body)));
                 response.render('questionClassic', JSON.parse(body));
             }
             else {
