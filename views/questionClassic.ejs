@@ -21,7 +21,7 @@
          <%var number = Math.floor(Math.random(0,4)*10); for(var i = 0; i <= results[0].incorrect_answers.length; i++){%>
          <%if(i == number){%>
          <input type="radio" id="textans" name="textans" value="<%=results[0].correct_answer%>"><%=results[0].correct_answer%></br>
-         <%}if(number < 3){%>
+         <%}if(i < 3){%>
          <input type="radio" id="textans" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i]%></br>
          <%}}%>
       </div>
