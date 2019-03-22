@@ -18,11 +18,11 @@
       </div>
       <div class="item3" id="text">
          <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=results[0].question%></textarea>
-         <%var number = parseInt(Math.random(4)); for(int i = 0; i < results[0].incorrect_answer.lenth; i++){%>
+         <%var number = parseInt(Math.random(4)); for(int i = 0; i < results[0].incorrect_answers.length; i++){%>
          <%if(i == number){%>
          <radio id="textans" name="textans" value="<%=results[0].correct_answer%>"><%=results[0].correct_answer%>
          <%}else{%>
-         <radio id="textans" name="textans" value="<%=results[0].incorrect_answer[i]%>"><%=results[0].incorrect_answer[i]%>
+         <radio id="textans" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i]%>
          <%}}%>
       </div>
       <div class="item4" id="anstext">
