@@ -5,7 +5,7 @@
    <meta charset="utf-8" />
    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script type="text/javascript" src="project2.js"></script>
-   <link type="text/css" href="/stylesheets/questcss.css" rel="stylesheet">
+   <link type="text/css" href="/stylesheets/questclassiccss.css" rel="stylesheet">
    <title>Trivia</title>
 </head>
 <body  >
@@ -17,12 +17,12 @@
          <p id="title">Catetory: <%=results[0].category%></br>Point Value: <%=results[0].difficulty%></p></br>
       </div>
       <div class="item3" id="text">
-         <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=results[0].question%></textarea>
+         <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=results[0].question%></textarea></br>
          <%var number = parseInt(Math.random(4)); for(var i = 0; i < results[0].incorrect_answers.length; i++){%>
          <%if(i == number){%>
-         <radio id="textans" name="textans" value="<%=results[0].correct_answer%>"><%=results[0].correct_answer%>
+         <input type="radio" id="textans" name="textans" value="<%=results[0].correct_answer%>"><%=results[0].correct_answer%></br>
          <%}else{%>
-         <radio id="textans" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i]%>
+         <input type="radio id="textans" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i]%></br>
          <%}}%>
       </div>
       <div class="item4" id="anstext">
