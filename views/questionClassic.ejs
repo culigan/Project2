@@ -18,7 +18,7 @@
       </div>
       <div class="item3" id="text">
          <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=results[0].question%></textarea></br>
-         <%var number = parseInt(Math.random(0,4), 10); for(var i = 0; i < results[0].incorrect_answers.length ; i++){%>
+         <%var number = Math.floor(Math.random(0,4)*10); for(var i = 0; i < results[0].incorrect_answers.length ; i++){%>
          <%if(i == number){%>
          <input type="radio" id="textans" name="textans" value="<%=results[0].correct_answer%>"><%=results[0].correct_answer%></br>
          <%}%>
