@@ -22,7 +22,7 @@
          <%if(i == number){%>
          <input type="radio" id="textans" name="textans" value="<%=results[0].correct_answer%>"><%=results[0].correct_answer%></br>
          <%}if(i < 3){%>
-         <input type="radio" id="textans" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i] + i%></br>
+         <input type="radio" id="textans" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i] + i + number%></br>
          <%}}%>
       </div>
       <div class="item4" id="anstext">
