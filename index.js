@@ -31,7 +31,7 @@ app.get('/selection', function (request, response) {
     //    response.render('home');
     
 });
-app.get('/question', function (request, response) {
+app.post('/question', function (request, response) {
 
     if (request.query.command == "Play Jeopardy") {
         var category = request.query.cat;
