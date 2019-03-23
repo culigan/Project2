@@ -8,7 +8,9 @@
 
 select{
    font-size:30px;
+   width:auto;
 }
+
 
 body{
    background-color:lightskyblue;
