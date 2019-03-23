@@ -10,8 +10,11 @@
 </head>
 <body>
    <form method="get" action="/question">     
-     <div id="container" >
-       <div id="item1">
+     <div id="container" >       
+       <div class="item1"> 
+         <p>JEOPARDY TRIVIA</p>
+      </div>
+      <div id="item2">
       
          <select id="cat" name="cat" style="width:150px;">       
             <%for(var i = 0; i < rows.length; i++){%>
@@ -24,7 +27,7 @@
             <%}%>
          </select>
        </div>
-       <div id="item2">
+       <div id="item3">
          <input id="jeopardy" name="command" type="submit" value="Play Jeopardy"/>
        </div>
       </div>
