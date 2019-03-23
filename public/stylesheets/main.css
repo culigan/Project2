@@ -6,6 +6,10 @@
    grid-area: menu;
 }
 
+select{
+   font-size:30px;
+}
+
 body{
    background-color:lightskyblue;
 }
