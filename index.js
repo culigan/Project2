@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 5000;
 var app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
+var jsonParser = bodyP.json();
+var urlendcodedParser = bodyP.urlencoded({ extended: false });
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -31,11 +31,11 @@ app.get('/selection', function (request, response) {
     //    response.render('home');
     
 });
-app.post('/question', function (request, response) {
+app.post('/question', urlendcodedParser, function (request, response) {
 
     if (request.query.command == "Play Jeopardy") {
-        var category = request.query.cat;
-        var difficulty = request.query.diff;
+        var category = request.body.cat;
+        var difficulty = request.body.diff;
 
         var options = {
             value: difficulty,
@@ -46,7 +46,7 @@ app.post('/question', function (request, response) {
         
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
-                var data = JSON.parse(result.body);
+                var data = result.body;
                 jserv.category(category, function (errorT, responseT, resultTitle) {
                     if (!errorT && responseT.statusCode == 200) {
                         response.render('question', ({ category: resultTitle.title, difficulty: difficulty, answer: data[0].answer, question: data[0].question, type: "Jeopardy"}));
