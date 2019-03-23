@@ -18,7 +18,7 @@
       </div>
       <div class="item3" id="text">
          <label for="quest">Answer</label>
-         <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=question%></textarea>
+         <textarea rows="3" cols="30" id="quest" name="quest" type="text" value="<%=question%>"></textarea>
          <input id="hanswer" name="textans" type="hidden" value="<%=answer%>"/>
          <label for="texans">Question</label>
          <textarea rows="3" cols="30" id="textans" name="textans" type="text" value=""></textarea>
@@ -26,7 +26,7 @@
       <div class="item4" id="anstext">
       </div>
       <div class="item5" id="form2">
-         <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getAnswer()"/>
+         <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getJAnswer()"/>
          <input id="back" name="answer" type="button" onclick="goBack()" value="Back"/>
       </div>
    </div>
