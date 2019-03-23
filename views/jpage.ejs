@@ -13,7 +13,7 @@
        <div class="item1"> 
          <p>JEOPARDY TRIVIA</p>
       </div>      
-      <form class="item2" method="get" action="/question">     
+      <form class="item2" method="post" action="/question">     
          <select id="cat" name="cat" >       
             <%for(var i = 0; i < rows.length; i++){%>
             <option value='<%=rows[i].category_id%>'/><%=rows[i].categoryname%></option>
