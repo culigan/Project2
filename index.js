@@ -1,5 +1,5 @@
 var express = require('express');
-const bodyP = require('body-parser');
+const bodyParser = require('body-parser');
 const { Pool, Client } = require('pg');
 const jserv = require('jservice-node')
 const connectionString = 'postgres://qpqyscymjuncvz:c6f3d9bc91dfd5e1769ff500e86e626f16fd8d93af810166b9e24c14d78345dc@ec2-184-73-216-48.compute-1.amazonaws.com:5432/d7cs9hmfc9ug7c';
@@ -7,8 +7,9 @@ const PORT = process.env.PORT || 5000;
 
 var app = express();
 
-var jsonParser = bodyP.json();
-var urlendcodedParser = bodyP.urlencoded({ extended: false });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -30,11 +31,11 @@ app.get('/selection', function (request, response) {
     //    response.render('home');
     
 });
-app.post('/question', urlendcodedParser, function (request, response) {
+app.get('/question', function (request, response) {
 
     if (request.query.command == "Play Jeopardy") {
-        var category = request.body.cat;
-        var difficulty = request.body.diff;
+        var category = request.query.cat;
+        var difficulty = request.query.diff;
 
         var options = {
             value: difficulty,
@@ -45,7 +46,7 @@ app.post('/question', urlendcodedParser, function (request, response) {
         
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
-                var data = result.body;
+                var data = JSON.parse(result.body);
                 jserv.category(category, function (errorT, responseT, resultTitle) {
                     if (!errorT && responseT.statusCode == 200) {
                         response.render('question', ({ category: resultTitle.title, difficulty: difficulty, answer: data[0].answer, question: data[0].question, type: "Jeopardy"}));
