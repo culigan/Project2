@@ -18,8 +18,10 @@ select{
    width: 120px;
 }
 
-body{
-   background-color:lightskyblue;
+body {
+   background-color: lightskyblue;
+   display: block;
+   overflow: auto;
 }
 .container{
    margin-left:10px;
@@ -55,13 +57,8 @@ input {
    border-bottom:5px solid black;
 }
 
-body{
-   display:block;
-   overflow:auto;
-}
-
-#jeopardy, #back{
-   font-size:20px;
+#jeopardy, #classic, #back{
+   font-size:30px;
 }
 
 #quest, #textans{
