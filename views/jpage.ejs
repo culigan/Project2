@@ -9,8 +9,10 @@
    <title>Trivia</title>
 </head>
 <body>
-   <div id="form1" >
-      <form method="get" action="/question">         
+   <form method="get" action="/question">     
+     <div id="container" >
+       <div id="item1">
+      
          <select id="cat" name="cat" style="width:150px;">       
             <%for(var i = 0; i < rows.length; i++){%>
             <option value='<%=rows[i].category_id%>'/><%=rows[i].categoryname%></option>
@@ -21,9 +23,12 @@
             <option value='<%=rows2[i].levelvalue%>'/><%=rows2[i].difficultylevel%></option>
             <%}%>
          </select>
+       </div>
+       <div id="item2">
          <input id="jeopardy" name="command" type="submit" value="Play Jeopardy"/>
-      </form>
-   </div>
+       </div>
+      </div>
+    </form>
    <div id="form2">
       <form method="get" action="/selection">
          <input id="back" name="command" type="button" onclick="goBack()" value="Back"/>
