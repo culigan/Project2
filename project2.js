@@ -1,4 +1,11 @@
-function getAnswer() {
+function getJAnswer() {
+    var answer = document.getElementById('textans').innerHTML;
+    var apiAnwer = document.getElementById('hanswer').value;
+
+    
+}
+
+function getCAnswer() {
 
 }
 
