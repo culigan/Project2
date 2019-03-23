@@ -69,3 +69,6 @@ input[id^="zone"]{
    visibility:hidden;
 }
 
+#answers{
+   text-align:left;
+}
