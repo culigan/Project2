@@ -10,13 +10,16 @@
 </head>
 <body>
    <div class="container" id="form1">
+      <div class="item1"> 
+         <p>JEOPARDY TRIVIA</p>
+      </div>     
       <form class="item2" method="get" action="/question">
-         <select id="cat" name="cat" style="width:150px;">       
+         <select id="cat" name="cat">       
            <%for(var i = 0; i < rows.length; i++){%>
             <option value='<%=rows[i].category_id%>'/><%=rows[i].categoryname%></option>
             <%}%> 
          </select>
-         <select id="diff" name="diff" style="width:150px;">
+         <select id="diff" name="diff">
             <%for(var i = 0; i < rows2.length; i++){%>
             <option value='<%=rows2[i].diffname%>'/><%=rows2[i].diffname%></option>
             <%}%>
@@ -26,8 +29,8 @@
       <div class="item3" id="form2">
          <form method="get" action="/">
            <input id="back" name="command" type="button" value="Back"/>
-       </form>
-      </div>
+         </form>
+       </div>
      </div>
    </body>
 </html>
