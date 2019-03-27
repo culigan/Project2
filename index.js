@@ -67,8 +67,8 @@ app.get('/question', function (request, response) {
         var category = request.query.cat;
         var difficulty = request.query.diff;
         var getRequest = require('request');
-        if (typeof req.session.score === 'undefined')
-            req.session.score = 0;
+        if (typeof request.session.score === 'undefined')
+            request.session.score = 0;
 
         var urlReqest = "https://opentdb.com/api.php?amount=1&type=multiple&difficulty="
             + difficulty + '&category=' + category;
