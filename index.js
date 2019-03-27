@@ -41,12 +41,11 @@ app.get('/question', function (request, response) {
         var answer = "";
         
         jserv.clues(options, function (error, result) {
-            console.log("test cat diff " + category + difficulty);
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
                 jserv.category(category, function (errorT, responseT, resultTitle) {
                     if (!errorT && responseT.statusCode == 200) {
-                        response.render('question', ({ category: category, difficulty: difficulty, answer: data[0].answer, question: data[0].question, type: "Jeopardy"}));
+                        response.render('question', ({ category: resultTitle.title, difficulty: difficulty, answer: data[0].answer, question: data[0].question, type: "Jeopardy"}));
                     }
                 });
             }
@@ -59,7 +58,8 @@ app.get('/question', function (request, response) {
         var category = request.query.cat;
         var difficulty = request.query.diff;
         var getRequest = require('request');
-        
+        console.log(category + difficulty);
+
         var urlReqest = "https://opentdb.com/api.php?amount=1&type=multiple&difficulty="
             + difficulty + '&category=' + category;
         getRequest(urlReqest, function (error, resp, body) {
