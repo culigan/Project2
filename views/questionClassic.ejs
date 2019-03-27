@@ -21,12 +21,11 @@
          <label id="anstext"></label>
       <label id="score"></label></br>
          <div id="answers">
-            <%var number = Math.floor(Math.random() * 4); for(var i = 0; i <= results[0].incorrect_answers.length; i++){%>
-            <%if(i == number){%>
-            <input type="radio" id="textans" name="textans" value="correct"><%=results[0].correct_answer%></br>
-            <%}if(i < 3){%>
+            <%for(var i = 0; i <= results[0].incorrect_answers.length; i++){%>
+            
             <input type="radio" id="textans" name="textans" value="incorrect"><%=results[0].incorrect_answers[i]%></br>
-            <%}}%>
+            <%}%>
+            <input type="radio" id="textans" name="textans" value="correct"><%=results[0].correct_answer%></br>
          </div>
       </div>
       <div class="item4" id="anstext">
