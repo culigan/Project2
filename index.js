@@ -41,7 +41,7 @@ app.get('/question', function (request, response) {
         var answer = "";
         
         jserv.clues(options, function (error, result) {
-            console.log(category + difficulty);
+            console.log("test cat diff " + category + difficulty);
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
                 jserv.category(category, function (errorT, responseT, resultTitle) {
