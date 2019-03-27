@@ -62,7 +62,7 @@ function getCAnswer() {
         data: { score: score },
         success: function (data) {
             console.log(data);
-            document.getElementById('score').innerHTML = (data).toString();
+            document.getElementById('score').innerHTML = (data.score).toString();
             if (playerAnswer == "correct") 
                 document.getElementById('anstext').innerHTML = "Correct Answer!";
             else
