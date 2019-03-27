@@ -58,7 +58,8 @@ function getCAnswer() {
             type: "POST",
             data: { score: score },
             success: function (data) {
-                document.getElementById('score').innerHTML = (score).toString();
+                console.log(data);
+                document.getElementById('score').innerHTML = (data).toString();
                 document.getElementById('anstext').innerHTML = "Correct Answer!";
             },
             Error: function () {
