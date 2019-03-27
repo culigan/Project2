@@ -47,7 +47,7 @@ function getJAnswer() {
 
 function getCAnswer() {
     var playerAnswer = document.getElementById('textans').value;
-    $.session.set('score', 0);
+    Session['score'] = 0;
     var score = Session['score'];
     if (isNaN(score))
         score = 0;
