@@ -47,9 +47,11 @@ function getJAnswer() {
 
 function getCAnswer() {
     var playerAnswer = document.getElementById('textans').innerHTML;
+    var correctAnswer = document.getElementById('correct').value;
+    console.log(playerAnswer + correctAnswer);
     var score = 0;
 
-    if (playerAnswer == document.getElementById('correct').value) {
+    if (playerAnswer == correctAnswer) {
         score++;    
         
         
