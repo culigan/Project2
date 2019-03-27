@@ -93,7 +93,7 @@ function getCCategories(request, response) {
         if (error || result == null) {
             response.status(500).json({ success: false, data: error });
         } else {
-            console.log("second" + result);
+            console.log("second" + JSON.stringify(result));
             response.render('cpage', result);
         }
     });
