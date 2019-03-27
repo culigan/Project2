@@ -46,10 +46,10 @@ function getJAnswer() {
 }
 
 function getCAnswer() {
-    var playerAnswer = document.getElementById('textans').value;
+    var playerAnswer = document.getElementById('textans').innerHTML;
     var score = 0;
 
-    if (playerAnswer == "correct") {
+    if (playerAnswer == document.getElementById('correct').value) {
         score++;    
         
         
@@ -63,7 +63,7 @@ function getCAnswer() {
         success: function (data) {
             console.log(data);
             document.getElementById('score').innerHTML = (data.score).toString();
-            if (playerAnswer == "correct") 
+            if (document.getElementById('textans').value == "correct") 
                 document.getElementById('anstext').innerHTML = "Correct Answer!";
             else
                 document.getElementById('anstext').innerHTML = "Wrong Answer!";
