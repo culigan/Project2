@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 5000;
 
 var app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+var jsonParser = bodyP.json();
+var urlendcodedParser = bodyP.urlencoded({ extended: false });
 app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -91,7 +91,12 @@ app.get('/answer', function (request, response) {
         response.render('question');
     
 });
-        
+
+app.post('/answer', urlendcodedParser, function (request, response) {
+    request.session.score = request.body.score + request.session.score;
+    response.send(request.session.score);
+}        
+
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 function getCCategories(request, response) {

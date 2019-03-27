@@ -52,13 +52,28 @@ function getCAnswer() {
         score = 0;
 
     if (playerAnswer == "correct") {
-        document.getElementById('score').innerHTML = (score + 1).toString();
-        document.getElementById('anstext').innerHTML = "Correct Answer!";
+        score++;
+        $.ajax({
+            url: '/addScore',
+            type: "POST",
+            data: { score: score },
+            success: function (data) {
+                document.getElementById('score').innerHTML = (score).toString();
+                document.getElementById('anstext').innerHTML = "Correct Answer!";
+            },
+            Error: function () {
+                alert('ERROR!');
+            }
+        });
+        
+        
     }
     else {
-        document.getElementById('score').innerHTML = (score + 1).toString();
+        document.getElementById('score').innerHTML = (score).toString();
         document.getElementById('anstext').innerHTML = "Wrong Answer!";
     }
+
+    
 }
 
 function goBack() {
