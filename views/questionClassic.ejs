@@ -17,7 +17,9 @@
          <p id="title">Catetory: <%=results[0].category%></br>Point Value: <%=results[0].difficulty%></p></br>
       </div>
       <div class="item3" id="text">
-         <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=results[0].question%></textarea></br>
+         <textarea rows="3" cols="30" id="quest" name="quest" type="text" ><%=results[0].question%></textarea>
+         <label id="anstext"></label>
+      <label id="score"></label></br>
          <div id="answers">
             <%var number = Math.floor(Math.random() * 4); for(var i = 0; i <= results[0].incorrect_answers.length; i++){%>
             <%if(i == number){%>
@@ -34,9 +36,6 @@
          <input id="back" name="answer" type="button" onclick="goBack()" value="Back"/>
       </div>
    </div>
-    <div id="scorediv">
-      <label id="anstext"></label>
-      <label id="score"></label>
-   </div>
+    
 </body>
 </html>

@@ -12,6 +12,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(session({
+    name: 'server-session',
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true,
+    store: new FileStore()
+}));
 
 app.get('/', function (request, response) {
     response.sendFile(__dirname + '/public/home.html');
@@ -55,17 +62,16 @@ app.get('/question', function (request, response) {
         });
     }
     else if (request.query.command == "Play Classic") {
-        console.log("Classic");
         var category = request.query.cat;
         var difficulty = request.query.diff;
         var getRequest = require('request');
-        console.log(category + difficulty);
+        if (typeof req.session.score === 'undefined')
+            req.session.score = 0;
 
         var urlReqest = "https://opentdb.com/api.php?amount=1&type=multiple&difficulty="
             + difficulty + '&category=' + category;
         getRequest(urlReqest, function (error, resp, body) {
             if (resp != null && resp.statusCode == 200) {
-                console.log(JSON.stringify(JSON.parse(body)));
                 response.render('questionClassic', JSON.parse(body));
             }
             else {
