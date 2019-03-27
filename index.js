@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 5000;
 
 var app = express();
 
-var jsonParser = bodyP.json();
-var urlendcodedParser = bodyP.urlencoded({ extended: false });
+var jsonParser = bodyParser.json();
+var urlendcodedParser = bodyParser.urlencoded({ extended: false });
 app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
