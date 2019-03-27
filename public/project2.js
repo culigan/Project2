@@ -48,7 +48,8 @@ function getJAnswer() {
 function getCAnswer() {
     var playerAnswer = document.getElementById('textans').value;
     var score = parseInt(document.getElementById('score').innerHTML);
-    
+    if (isNaN(score))
+        score = 0;
 
     if (playerAnswer == "correct") {
         document.getElementById('score').innerHTML = (score + 1).toString();
