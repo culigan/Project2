@@ -47,13 +47,13 @@ function getJAnswer() {
 
 function getCAnswer() {
     var playerAnswer = document.getElementById('textans').value;
-    var score = $.session.get('score');
+    var score = Session['score'];
     if (isNaN(score))
         score = 0;
 
     if (playerAnswer == "correct") {
         document.getElementById('score').innerHTML = (score + 1).toString();
-        $.session.set('score', score);
+        session['score'] = score;
         document.getElementById('anstext').innerHTML = "Correct Answer!";
     }
     else {
