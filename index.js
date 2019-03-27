@@ -92,7 +92,7 @@ app.get('/answer', function (request, response) {
     
 });
 
-app.post('/answer', urlendcodedParser, function (request, response) {
+app.post('/addScore', urlendcodedParser, function (request, response) {
     request.session.score = request.body.score + request.session.score;
     response.send(request.session.score);
 });        
