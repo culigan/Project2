@@ -21,9 +21,9 @@
          <div id="answers">
             <%var number = Math.floor(Math.random() * 4); for(var i = 0; i <= results[0].incorrect_answers.length; i++){%>
             <%if(i == number){%>
-            <input type="radio" id="textans" name="textans" value="<%=results[0].correct_answer%>"><%=results[0].correct_answer%></br>
+            <input type="radio" id="textans" name="textans" value="correct"><%=results[0].correct_answer%></br>
             <%}if(i < 3){%>
-            <input type="radio" id="textans" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i]%></br>
+            <input type="radio" id="textans" name="textans" value="incorrect"><%=results[0].incorrect_answers[i]%></br>
             <%}}%>
          </div>
       </div>
@@ -33,6 +33,10 @@
          <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getCAnswer()"/>
          <input id="back" name="answer" type="button" onclick="goBack()" value="Back"/>
       </div>
+   </div>
+    <div id="scorediv">
+      <label id="anstext"></label>
+      <label id="score"></label>
    </div>
 </body>
 </html>

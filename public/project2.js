@@ -39,19 +39,25 @@ function getClassic(cat, diff) {
     });
 }
 
-function getAnswer() {
-    $.ajax({
-        url: 'localhost:5000',
-        type: "GET",
-        data: { user: username },
-        success: function (data) {
-            alert("Item has been added to the cart!");
-        },
-        error: function () {
-            alert("ERROR!");
+function getJAnswer() {
+    var apiAnswer = document.getElementById('hanswer').value;
+    var playerAnswer = document.getElementById('textans').value;
 
-        }
-    });
+}
+
+function getCAnswer() {
+    var playerAnswer = document.getElementById('textans').value;
+    var score = parseInt(document.getElementById('score').innerHTML);
+    
+
+    if (playerAnswer == "correct") {
+        document.getElementById('score').innerHTML = (score + 1).toString();
+        document.getElementById('anstext').innerHTML = "Correct Answer!";
+    }
+    else {
+        document.getElementById('score').innerHTML = (score + 1).toString();
+        document.getElementById('anstext').innerHTML = "Correct Answer!";
+    }
 }
 
 function goBack() {

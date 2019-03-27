@@ -20,15 +20,11 @@ app.get('/selection', function (request, response) {
     
     if (request.query.style == "Jeopardy Style") {
         getJCategories(request, response);
-        //response.end(response.render('jpage'));
 
     }
     else if (request.query.style == "Classic Style") {
         getCCategories(request, response);
-        //response.render('cpage');
     }
-    //else if (request.query.command == "Back" || request.query.answer == "Back")
-    //    response.render('home');
     
 });
 app.get('/question', function (request, response) {
