@@ -47,34 +47,32 @@ function getJAnswer() {
 
 function getCAnswer() {
     var playerAnswer = document.getElementById('textans').value;
-    var score = parseInt(document.getElementById('score').innerHTML);
-    if (isNaN(score))
-        score = 0;
+    var score = 0;
 
     if (playerAnswer == "correct") {
-        score++;
-        $.ajax({
-            url: '/addScore',
-            type: "POST",
-            data: { score: score },
-            success: function (data) {
-                console.log(data);
-                document.getElementById('score').innerHTML = (data).toString();
-                document.getElementById('anstext').innerHTML = "Correct Answer!";
-            },
-            Error: function () {
-                alert('ERROR!');
-            }
-        });
+        score++;    
         
         
     }
-    else {
-        document.getElementById('score').innerHTML = (score).toString();
-        document.getElementById('anstext').innerHTML = "Wrong Answer!";
-    }
-
     
+
+    $.ajax({
+        url: '/addScore',
+        type: "POST",
+        data: { score: score },
+        success: function (data) {
+            console.log(data);
+            document.getElementById('score').innerHTML = (data).toString();
+            if (playerAnswer == "correct") 
+                document.getElementById('anstext').innerHTML = "Correct Answer!";
+            else
+                document.getElementById('anstext').innerHTML = "Wrong Answer!";
+
+        },
+        Error: function () {
+            alert('ERROR!');
+        }
+    });
 }
 
 function goBack() {
