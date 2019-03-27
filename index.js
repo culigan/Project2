@@ -45,6 +45,7 @@ app.get('/question', function (request, response) {
                 var data = JSON.parse(result.body);
                 jserv.category(category, function (errorT, responseT, resultTitle) {
                     if (!errorT && responseT.statusCode == 200) {
+                        console.log(responseT, resultTitle);
                         response.render('question', ({ category: resultTitle.title, difficulty: difficulty, answer: data[0].answer, question: data[0].question, type: "Jeopardy"}));
                     }
                 });
