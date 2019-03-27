@@ -56,7 +56,7 @@ function getCAnswer() {
     }
     else {
         document.getElementById('score').innerHTML = (score + 1).toString();
-        document.getElementById('anstext').innerHTML = "Correct Answer!";
+        document.getElementById('anstext').innerHTML = "Wrong Answer!";
     }
 }
 
