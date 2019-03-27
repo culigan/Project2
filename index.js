@@ -96,6 +96,7 @@ app.post('/addScore', urlendcodedParser, function (request, response) {
     if (typeof request.session.username === 'undefined') {
         console.log("undefined");
         request.session.score = parseInt(request.body.score);
+    }
     else
         request.session.score = parseInt(request.body.score) + parseInt(request.session.score);
     console.log(request.session.score);
