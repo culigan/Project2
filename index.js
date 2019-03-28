@@ -94,7 +94,7 @@ app.get('/answer', function (request, response) {
 });
 
 app.post('/addScore', urlendcodedParser, function (request, response) {
-    if (typeof request.session.username === 'undefined') {
+    if (typeof request.session.score === 'undefined') {
         console.log("undefined");
         request.session.score = parseInt(request.body.score);
     }
