@@ -46,15 +46,11 @@ function getJAnswer() {
 }
 
 function getCAnswer() {
-    var playerAnswer = document.getElementsByName('textans');
-    var correctAnswer = document.getElementById('correct').value;
-    console.log("correct answer:" +playerAnswer + correctAnswer);
+    var checked = document.getElementById('textans4').checked;
     var score = 0;
 
-    if (playerAnswer == correctAnswer) {
-        score++;    
-        
-        
+    if (checked) {
+        score++;           
     }
     
 
