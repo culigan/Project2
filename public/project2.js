@@ -60,11 +60,12 @@ function getCAnswer() {
         data: { score: score },
         success: function (data) {
             console.log(data);
-            document.getElementById('score').innerHTML = (data.score).toString();
-            if (checked) 
-                document.getElementById('anstext').innerHTML = "Correct Answer! Your Score is: ";
+            document.getElementById('score').innerHTML = "Your Score is: " + (data.score).toString();
+            if (checked) {
+                document.getElementById('anstext').innerHTML = "Correct Answer!";
+            }
             else
-                document.getElementById('anstext').innerHTML = "Wrong Answer! Your Score is: ";
+                document.getElementById('anstext').innerHTML = "Wrong Answer!";
 
         },
         Error: function () {
