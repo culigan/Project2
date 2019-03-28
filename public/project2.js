@@ -77,10 +77,9 @@ function getCAnswer() {
 function newQuestion() {
     
     location.reload();
-    document.getElementById('textans1').checked = false;
-    document.getElementById('textans2').checked = false;
-    document.getElementById('textans3').checked = false;
-    document.getElementById('textans4').checked = false;
+    var radioOff = document.getElementsByClassName('radio');
+    radioOff.checked = false;
+   
 }
 
 function goBack() {
