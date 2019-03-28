@@ -61,10 +61,10 @@ function getCAnswer() {
         success: function (data) {
             console.log(data);
             document.getElementById('score').innerHTML = (data.score).toString();
-            if (document.getElementById('textans').value == "correct") 
-                document.getElementById('anstext').innerHTML = "Correct Answer!";
+            if (checked) 
+                document.getElementById('anstext').value = "Correct Answer! ";
             else
-                document.getElementById('anstext').innerHTML = "Wrong Answer!";
+                document.getElementById('anstext').value = "Wrong Answer! ";
 
         },
         Error: function () {
