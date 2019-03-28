@@ -73,6 +73,10 @@ function getCAnswer() {
     });
 }
 
+function newQuestion() {
+    location.reload();
+}
+
 function goBack() {
     window.history.back();
 }
