@@ -23,9 +23,9 @@
          <div id="answers">
             <%var number = Math.floor(Math.random() * 4); for(var i = 0; i <= results[0].incorrect_answers.length; i++){%>
             <%if(i == number){%>
-            <input type="radio" id="textans4" name="textans" value="<%=number%>"><%=results[0].correct_answer%></br>
+            <input class="radio" type="radio" id="textans4" name="textans" value="<%=number%>"><%=results[0].correct_answer%></br>
             <%}if(i < 3){%>
-            <input type="radio" id="textans<%=i%>" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i]%></br>
+            <input class="radio" type="radio" id="textans<%=i%>" name="textans" value="<%=results[0].incorrect_answers[i]%>"><%=results[0].incorrect_answers[i]%></br>
             <%}}%>
          </div>
       </div>

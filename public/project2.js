@@ -75,8 +75,12 @@ function getCAnswer() {
 }
 
 function newQuestion() {
-    $('textans').removeAttr('checked');
+    
     location.reload();
+    document.getElementById('textans1').checked = false;
+    document.getElementById('textans2').checked = false;
+    document.getElementById('textans3').checked = false;
+    document.getElementById('textans4').checked = false;
 }
 
 function goBack() {
