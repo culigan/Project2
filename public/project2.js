@@ -75,10 +75,10 @@ function getCAnswer() {
 }
 
 function newQuestion() {
-    
-    location.reload();
     var radioOff = document.getElementsByClassName('radio');
     radioOff.checked = false;
+    location.reload();
+    
    
 }
 
