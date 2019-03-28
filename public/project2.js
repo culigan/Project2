@@ -75,6 +75,7 @@ function getCAnswer() {
 }
 
 function newQuestion() {
+    $('textans').removeAttr('checked');
     location.reload();
 }
 
