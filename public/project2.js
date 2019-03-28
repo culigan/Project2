@@ -81,6 +81,7 @@ function newQuestion() {
 }
 
 function clrRadio() {
+    document.getElementById('textans0').checked = false;
     $('input[type=radio]').attr('checked', false);
 
 }
