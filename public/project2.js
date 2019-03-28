@@ -46,7 +46,7 @@ function getJAnswer() {
 }
 
 function getCAnswer() {
-    var playerAnswer = document.getElementById('textans').value;
+    var playerAnswer = document.getElementsByName('textans').value;
     var correctAnswer = document.getElementById('correct').value;
     console.log("correct answer:" +playerAnswer + correctAnswer);
     var score = 0;
