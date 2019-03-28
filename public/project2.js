@@ -62,9 +62,9 @@ function getCAnswer() {
             console.log(data);
             document.getElementById('score').innerHTML = (data.score).toString();
             if (checked) 
-                document.getElementById('anstext').value = "Correct Answer! ";
+                document.getElementById('anstext').innerHTML = "Correct Answer! Your Score is: ";
             else
-                document.getElementById('anstext').value = "Wrong Answer! ";
+                document.getElementById('anstext').innerHTML = "Wrong Answer! Your Score is: ";
 
         },
         Error: function () {
