@@ -80,7 +80,7 @@ function newQuestion() {
    
 }
 
-function clearRadio() {
+function clrRadio() {
     $('input[type=radio]').attr('checked', false);
 
 }
