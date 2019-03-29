@@ -42,7 +42,7 @@ function getClassic(cat, diff) {
 function getJAnswer() {
     var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
     var playerAnswer = document.getElementById('textans').value.toUpperCase();
-    var pointValue = document.getElementById('diffvalue').value;
+    var pointValue = document.getElementById('diffvalue').innerHTML;
     var score = 0;
 
     if (playerAnswer == apiAnswer) {
