@@ -130,41 +130,45 @@ function newQuestion() {
 
 function initialize() {
     clrRadio();
-    findQuotes();
+    findQuotes("&amp;quot;", "\"");
+    findQuotes("&amp;#039;", "'");
     //findApost();
 }
 
-function findApost() {
-    document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep("&amp;quot;;", "\"");//&#039&amp;quot;
-    document.getElementById('textans1').innerHTML = document.getElementById('textans1').innerHTML.replace("&amp;quot;", "\"");
-    document.getElementById('textans2').innerHTML = document.getElementById('textans2').innerHTML.replace("&amp;quot;", "\"");
-    document.getElementById('textans4').innerHTML = document.getElementById('textans4').innerHTML.replace("&amp;quot;", "\"");
-    var test = document.getElementById('quest').innerHTML;
-    document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
-}
-
-function findQuotes() {
+function findQuotes(valueToRepl, replaceValue) {
     var zero = document.getElementById('textans0').innerHTML;
     var one = document.getElementById('textans1').innerHTML;
     var two = document.getElementById('textans2').innerHTML;
     var four = document.getElementById('textans4').innerHTML;
     var test = document.getElementById('quest').innerHTML;
     var quest = document.getElementById('quest').innerHTML;
-    if (quest.search("&amp;quot;") != -1) {
-        document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
-        if (quest.search("&amp;quot;") != -1) {
-            document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
+    if (quest.search(valueToRepl) != -1) {
+        document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace(valueToRepl, replaceValue);
+        if (quest.search(valueToRepl) != -1) {
+            document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace(valueToRepl, replaceValue);
         }
     }
-    /*= document.getElementById('textans0').innerHTML.rep("&amp;quot;;", "\"");//&#039&amp;quot;
-    document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep("&amp;quot;;", "\"");//&#039&amp;quot;
-    = document.getElementById('textans1').innerHTML.replace("&amp;quot;", "\"");
-    document.getElementById('textans1').innerHTML = document.getElementById('textans1').innerHTML.replace("&amp;quot;", "\"");
-    = document.getElementById('textans2').innerHTML.replace("&amp;quot;", "\"");
-    document.getElementById('textans2').innerHTML = document.getElementById('textans2').innerHTML.replace("&amp;quot;", "\"");
-    = document.getElementById('textans4').innerHTML.replace("&amp;quot;", "\"");
-    document.getElementById('textans4').innerHTML = document.getElementById('textans4').innerHTML.replace("&amp;quot;", "\"");
-    */
+    if (zero.search(valueToRepl) != -1) {
+        document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep(valueToRepl, replaceValue);//&#039&amp;quot;
+        if (zero.search(valueToRepl) != -1) {
+            document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep(valueToRepl, replaceValue);//&#039&amp;quot;
+        }
+    }
+    if (one.search(valueToRepl) != -1) {
+        if (one.search(valueToRepl) != -1) {
+            document.getElementById('textans1').innerHTML = document.getElementById('textans1').innerHTML.replace(valueToRepl, replaceValue);
+        }
+    }
+    if (two.search(valueToRepl) != -1) {
+        if (two.search(valueToRepl) != -1) {
+            document.getElementById('textans2').innerHTML = document.getElementById('textans2').innerHTML.replace(valueToRepl, replaceValue);
+        }
+    }
+    if (four.search(valueToRepl) != -1) {
+        if (four.search(valueToRepl) != -1) {
+            document.getElementById('textans4').innerHTML = document.getElementById('textans4').innerHTML.replace(valueToRepl, replaceValue);
+        }
+    }
 }
 
 function clrRadio() {
