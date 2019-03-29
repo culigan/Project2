@@ -150,9 +150,9 @@ function findQuotes() {
     var four = document.getElementById('textans4').innerHTML;
     var test = document.getElementById('quest').innerHTML;
     var quest = document.getElementById('quest').innerHTML;
-    if (zero.search("&amp;quot;") != -1) {
+    if (quest.search("&amp;quot;") != -1) {
         document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
-        if (zero.search("&amp;quot;") != -1) {
+        if (quest.search("&amp;quot;") != -1) {
             document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
         }
     }
