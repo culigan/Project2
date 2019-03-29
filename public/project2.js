@@ -18,7 +18,7 @@ function getJQuestion() {
         url: '/getIndex',
         type: "POST",
         success: function (data) {
-            document.getElementById('quest').value = questions[data.index].questions;
+            document.getElementById('quest').value = questions[data.index].question;
             document.getElementById('hanswer').value = questions[data.index].answer;
             document.getElementById('textans').value = "";
         },
