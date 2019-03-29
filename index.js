@@ -26,11 +26,14 @@ app.get('/', function (request, response) {
     response.sendFile(__dirname + '/public/home.html');
 });
 app.get('/getIndex', urlendcodedParser, function (request, response) {
+    console.log("start");
+
     if (typeof request.session.index === 'undefined') {
         request.session.index = 1;
     }
     else
-        request.session.index++;
+        request.session.index = parseInt(request.session.index) + 1;
+    console.log(request.session.index);
     response.send({ index: request.session.index });
 });
 app.get('/selection', function (request, response) {
