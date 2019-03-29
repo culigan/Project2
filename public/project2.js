@@ -12,14 +12,14 @@ function getQuestion(request, response) {
 }
 
 function getJQuestion() {
-    var questions = JSON.parse(document.getElementById('all').value);    
+    var questions = document.getElementById('all').value;    
 
     $.ajax({
         url: '/getIndex',
         type: "POST",
         success: function (data) {
-            document.getElementById('quest').value = questions.all[data.index].questions;
-            document.getElementById('hanswer').value = questions.all[data.index].answer;
+            document.getElementById('quest').value = questions[data.index].questions;
+            document.getElementById('hanswer').value = questions[data.index].answer;
             document.getElementById('textans').value = "";
         },
         Error: function () {
