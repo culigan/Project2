@@ -47,8 +47,8 @@ body{
    overflow:auto;
 }
 
-#form2{
-   font-size:30px;
+#jeopardy, #back, #new{
+   font-size:40px;
 }
 
 #quest, #textans{
