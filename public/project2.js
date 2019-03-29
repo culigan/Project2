@@ -39,22 +39,41 @@ function getClassic(cat, diff) {
     });
 }
 
-function getJAnswer() {
-    var apiAnswer = document.getElementById('hanswer').value.toUpperCase;
-    var playerAnswer = document.getElementById('textans').value.toUpperCase;
+function getJAnswer(difficulty) {
+    var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
+    var playerAnswer = document.getElementById('textans').value.toUpperCase();
+    var score = 0;
 
     if (playerAnswer == apiAnswer) {
-        
+        score = parseInt(difficulty);
     }
 
+    $.ajax({
+        url: '/addScore',
+        type: "POST",
+        data: { score: score },
+        success: function (data) {
+            console.log(data);
+            document.getElementById('score').innerHTML = "Your Score is: " + (data.score).toString();
+            if (checked) {
+                document.getElementById('anstext').innerHTML = "Correct Answer!";
+            }
+            else
+                document.getElementById('anstext').innerHTML = "Wrong Answer!";
+
+        },
+        Error: function () {
+            alert('ERROR!');
+        }
+    });
 }
 
-function getCAnswer(difficulty) {
+function getCAnswer() {
     var checked = document.getElementById('textans4').checked;
     var score = 0;
 
     if (checked) {
-        score += difficulty;           
+        score++;           
     }
     
 
