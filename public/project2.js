@@ -40,15 +40,19 @@ function getClassic(cat, diff) {
 }
 
 function getJAnswer() {
-    var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
-    var playerAnswer = document.getElementById('textans').value.toUpperCase();
-    var pointValue = document.getElementById('diffvalue').innerHTML;
-    var score = 0;
+    try {
+        var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
+        var playerAnswer = document.getElementById('textans').value.toUpperCase();
+        var pointValue = document.getElementById('diffvalue').innerHTML;
+        var score = 0;
 
-    if (playerAnswer == apiAnswer) {
-        score = parseInt(pointValue);
+        if (playerAnswer == apiAnswer) {
+            score = parseInt(pointValue);
+        }
     }
-
+    catch (err) {
+        document.getElementById('diffvalue').innerHTML = err;
+    }
     $.ajax({
         url: '/addScore',
         type: "POST",
