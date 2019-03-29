@@ -66,7 +66,7 @@ app.get('/question', function (request, response) {
                 console.log("data : " + result.body);
                 jserv.category(category, function (errorT, responseT, resultTitle) {
                     if (!errorT && responseT.statusCode == 200) {
-                        response.render('question', ({ category: resultTitle.title, difficulty: data[0].value, answer: data[0].answer, question: data[0].question, type: "Jeopardy", all: data}));
+                        response.render('question', ({ category: resultTitle.title, difficulty: data[0].value, answer: data[0].answer, question: data[0].question, type: "Jeopardy", all: result.body}));
                     }
                 });
             }
