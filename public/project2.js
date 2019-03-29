@@ -12,6 +12,8 @@ function getQuestion(request, response) {
 }
 
 function getJQuestion() {
+    var data = document.getElementById('all').value;
+    var data = JSON.stringify(document.getElementById('all').value);
     var data = JSON.parse(document.getElementById('all').value);
 
     $.ajax({
