@@ -134,7 +134,7 @@ function initialize() {
     findApost();
 }
 
-function findQuotes() {
+function findApost() {
     document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep("&amp;quot;;", "\"");//&#039&amp;quot;
     document.getElementById('textans1').innerHTML = document.getElementById('textans1').innerHTML.replace("&amp;quot;", "\"");
     document.getElementById('textans2').innerHTML = document.getElementById('textans2').innerHTML.replace("&amp;quot;", "\"");
