@@ -25,7 +25,7 @@ app.use(session({
 app.get('/', function (request, response) {
     response.sendFile(__dirname + '/public/home.html');
 });
-app.get('/getIndex', function (request, response) {
+app.get('/getIndex', urlendcodedParser, function (request, response) {
     if (typeof request.session.index === 'undefined') {
         request.session.index = 1;
     }
