@@ -39,7 +39,7 @@ function getClassic(cat, diff) {
     });
 }
 
-function getJAnswer(difficulty) {
+function getJAnswer() {
     var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
     var playerAnswer = document.getElementById('textans').value.toUpperCase();
     var pointValue = document.getElementById('title').value;
