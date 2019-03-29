@@ -57,6 +57,7 @@ function getClassic(cat, diff) {
 }*/
 
 function getJAnswer() {
+    var checked = true;
     try {
         var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
         var playerAnswer = document.getElementById('textans').value.toUpperCase();
@@ -66,6 +67,8 @@ function getJAnswer() {
         if (playerAnswer == apiAnswer) {
             score = parseInt(pointValue);
         }
+        else
+            checked = false;
     }
     catch (err) {
         document.getElementById('diffvalue').innerHTML = err;
