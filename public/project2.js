@@ -11,6 +11,19 @@ function getQuestion(request, response) {
         returnQuest = getClassic(cat, diff);
 }
 
+function getJQuestion() {
+    $.ajax({
+        url: 'jService.io',
+        type: "GET",
+        data: { category: cat, difficulty: diff },
+        success: function (data) {
+            document.getElementById('quest').innerHTML = JSON.stringify(data);
+        },
+        Error: function () {
+            alert('ERROR!');
+        }
+    });
+}
 /*function getJeopardy(cat, diff) {
     $.ajax({
         url: 'jService.io',
