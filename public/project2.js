@@ -142,32 +142,24 @@ function findQuotes(valueToRepl, replaceValue) {
     var four = document.getElementById('textans4').innerHTML;
     var test = document.getElementById('quest').innerHTML;
     var quest = document.getElementById('quest').innerHTML;
-    if (quest.search(valueToRepl) != -1) {
+    while (quest.search(valueToRepl) != -1) {
         document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace(valueToRepl, replaceValue);
-        if (quest.search(valueToRepl) != -1) {
-            document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace(valueToRepl, replaceValue);
-        }
+        
     }
-    if (zero.search(valueToRepl) != -1) {
+    while (zero.search(valueToRepl) != -1) {
         document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep(valueToRepl, replaceValue);//&#039&amp;quot;
-        if (zero.search(valueToRepl) != -1) {
-            document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep(valueToRepl, replaceValue);//&#039&amp;quot;
-        }
+        
     }
-    if (one.search(valueToRepl) != -1) {
-        if (one.search(valueToRepl) != -1) {
-            document.getElementById('textans1').innerHTML = document.getElementById('textans1').innerHTML.replace(valueToRepl, replaceValue);
-        }
+    while (one.search(valueToRepl) != -1) {
+        document.getElementById('textans1').innerHTML = document.getElementById('textans1').innerHTML.replace(valueToRepl, replaceValue);
     }
-    if (two.search(valueToRepl) != -1) {
-        if (two.search(valueToRepl) != -1) {
-            document.getElementById('textans2').innerHTML = document.getElementById('textans2').innerHTML.replace(valueToRepl, replaceValue);
-        }
+    while (two.search(valueToRepl) != -1) {
+        document.getElementById('textans2').innerHTML = document.getElementById('textans2').innerHTML.replace(valueToRepl, replaceValue);
+        
     }
-    if (four.search(valueToRepl) != -1) {
-        if (four.search(valueToRepl) != -1) {
-            document.getElementById('textans4').innerHTML = document.getElementById('textans4').innerHTML.replace(valueToRepl, replaceValue);
-        }
+    while (four.search(valueToRepl) != -1) {
+        document.getElementById('textans4').innerHTML = document.getElementById('textans4').innerHTML.replace(valueToRepl, replaceValue);
+        
     }
 }
 
