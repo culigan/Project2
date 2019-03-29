@@ -51,7 +51,7 @@ app.get('/question', urlendcodedParser, function (request, response) {
         
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
-                var questions = { data: result.body };
+                var questions = "{ data: " + result.body + "}";
                 console.log("data : " + question);
                 jserv.category(category, function (errorT, responseT, resultTitle) {
                     if (!errorT && responseT.statusCode == 200) {
