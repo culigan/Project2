@@ -12,7 +12,7 @@ function getQuestion(request, response) {
 }
 
 function getJQuestion() {
-    var questions = document.getElementById('all').value; 
+    var questions = JSON.parse(document.getElementById('all').value); 
 
     $.ajax({
         url: '/getIndex',
