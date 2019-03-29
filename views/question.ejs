@@ -15,6 +15,8 @@
       </div>
       <div class="item2" id="theader">
          <p id="title">Catetory: <%=category%></br>Point Value: <%=difficulty%></p></br>
+         <label id="anstext"></label></br>
+         <label id="score"></label>
       </div>
       <div class="item3" id="text">
          <label for="quest">Answer</label>
@@ -26,7 +28,8 @@
       <div class="item4" id="anstext">
       </div>
       <div class="item5" id="form2">
-         <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getJAnswer()"/>
+         <input id="jeopardy" name="answer" type="button" value="Submit Answer" onclick="getJAnswer(<%difficulty%>)"/>
+         <input id="another" name="another" type="button" value="Get Another Question" onclick="getJAnswer()"/>
          <input id="back" name="answer" type="button" onclick="goBack()" value="Back"/>
       </div>
    </div>

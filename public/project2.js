@@ -40,17 +40,21 @@ function getClassic(cat, diff) {
 }
 
 function getJAnswer() {
-    var apiAnswer = document.getElementById('hanswer').value;
-    var playerAnswer = document.getElementById('textans').value;
+    var apiAnswer = document.getElementById('hanswer').value.toUpperCase;
+    var playerAnswer = document.getElementById('textans').value.toUpperCase;
+
+    if (playerAnswer == apiAnswer) {
+        
+    }
 
 }
 
-function getCAnswer() {
+function getCAnswer(difficulty) {
     var checked = document.getElementById('textans4').checked;
     var score = 0;
 
     if (checked) {
-        score++;           
+        score += difficulty;           
     }
     
 
