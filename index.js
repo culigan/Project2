@@ -52,10 +52,10 @@ app.get('/question', function (request, response) {
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
+                console.log("data : " data);
                 jserv.category(category, function (errorT, responseT, resultTitle) {
                     if (!errorT && responseT.statusCode == 200) {
-                        console.log(responseT, resultTitle);
-                        response.render('question', ({ category: resultTitle.title, difficulty: difficulty, answer: data[0].answer, question: data[0].question, type: "Jeopardy"}));
+                        response.render('question', ({ category: resultTitle.title, difficulty: difficulty, answer: data[0].answer, question: data[0].question, type: "Jeopardy", all: data}));
                     }
                 });
             }
@@ -74,7 +74,6 @@ app.get('/question', function (request, response) {
             + difficulty + '&category=' + category;
         getRequest(urlReqest, function (error, resp, body) {
             if (resp != null && resp.statusCode == 200) {
-                console.log(JSON.stringify(body));
                 response.render('questionClassic', JSON.parse(body));
             }
             else {
@@ -95,32 +94,27 @@ app.get('/answer', function (request, response) {
 
 app.post('/addScore', urlendcodedParser, function (request, response) {
     if (typeof request.session.score === 'undefined') {
-        console.log("undefined");
         request.session.score = parseInt(request.body.score);
     }
     else
         request.session.score = parseInt(request.body.score) + parseInt(request.session.score);
-    console.log(request.session.score);
     response.send({ score: request.session.score });
 });        
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 function getCCategories(request, response) {
-    console.log('get in function');
     var id = 0;
     getCCategoriesFromDb(id, function (error, result) {
         if (error || result == null) {
             response.status(500).json({ success: false, data: error });
         } else {
-            console.log("second" + JSON.stringify(result));
             response.render('cpage', result);
         }
     });
 }
 
 function getCCategoriesFromDb(id, callback) {
-    console.log("Getting person from DB with id: " + id);
     var sql = "SELECT category_id, categoryname FROM classiccategories";
     var sql1 = "SELECT diffname FROM classicdifficulty";
 
@@ -132,15 +126,10 @@ function getCCategoriesFromDb(id, callback) {
         pool.query(sql1, function (err, result2) {
 
             if (err) {
-                console.log("Error in query: ")
-                console.log(err);
                 callback(err, null);
             }
 
-            console.log("Found result: " + JSON.stringify(result1));
-            console.log("Found result: " + JSON.stringify(result2));
-
-
+            
             callback(null, { rows: result1.rows, rows2: result2.rows });
         });
     });
@@ -153,14 +142,12 @@ function getJCategories(request, response) {
         if (error || result == null ) {
             response.status(500).json({ success: false, data: error });
         } else {
-            console.log("second" + result);
             response.render('jpage', result);
         }
     });
 }
 
 function getCategoriesFromDb(id, callback) {
-    console.log("Getting person from DB with id: " + id);
     var sql = "SELECT categoryname, category_id FROM jeopardycategories";
     var sql1 = "SELECT difficultylevel, levelvalue FROM jeopardydifficulty";
 
@@ -172,14 +159,8 @@ function getCategoriesFromDb(id, callback) {
         pool.query(sql1, function (err, result2) {
 
             if (err) {
-                console.log("Error in query: ")
-                console.log(err);
-                callback(err, null);
+               callback(err, null);
             }
-
-            console.log("Found result: " + JSON.stringify(result1));
-            console.log("Found result: " + JSON.stringify(result2));
-
 
             callback(null, { rows: result1.rows, rows2: result2.rows });
         });
@@ -200,7 +181,6 @@ function getPerson(request, response) {
 }
 
 function getPersonFromDb(id, callback) {
-    console.log("Getting person from DB with id: " + id);
     var sql = "SELECT * FROM person WHERE id = $1::int";
 
     var params = [id];
@@ -210,13 +190,9 @@ function getPersonFromDb(id, callback) {
 
     pool.query(sql, params, function (err, result) {
         if (err) {
-            console.log("Error in query: ")
-            console.log(err);
             callback(err, null);
         }
-
-        console.log("Found result: " + JSON.stringify(result.rows));
-
+               
 
         callback(null, result.rows);
     });
