@@ -151,9 +151,9 @@ function findQuotes() {
     var test = document.getElementById('quest').innerHTML;
     var quest = document.getElementById('quest').innerHTML;
     if (quest.search("&amp;quot;") != -1) {
-        document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
+        document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
         if (quest.search("&amp;quot;") != -1) {
-            document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
+            document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
         }
     }
     /*= document.getElementById('textans0').innerHTML.rep("&amp;quot;;", "\"");//&#039&amp;quot;
