@@ -140,26 +140,26 @@ function findQuotes(valueToRepl, replaceValue) {
     var one = document.getElementById('textans1').innerHTML;
     var two = document.getElementById('textans2').innerHTML;
     var four = document.getElementById('textans4').innerHTML;
-    var test = document.getElementById('quest').innerHTML;
     var quest = document.getElementById('quest').innerHTML;
     while (quest.search(valueToRepl) != -1) {
         document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace(valueToRepl, replaceValue);
-        
+        quest = document.getElementById('quest').innerHTML;
     }
     while (zero.search(valueToRepl) != -1) {
         document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep(valueToRepl, replaceValue);//&#039&amp;quot;
-        
+        zero = document.getElementById('textans0').innerHTML;
     }
     while (one.search(valueToRepl) != -1) {
         document.getElementById('textans1').innerHTML = document.getElementById('textans1').innerHTML.replace(valueToRepl, replaceValue);
+        one = document.getElementById('textans1').innerHTML;
     }
     while (two.search(valueToRepl) != -1) {
         document.getElementById('textans2').innerHTML = document.getElementById('textans2').innerHTML.replace(valueToRepl, replaceValue);
-        
+        two = document.getElementById('textans2').innerHTML;
     }
     while (four.search(valueToRepl) != -1) {
         document.getElementById('textans4').innerHTML = document.getElementById('textans4').innerHTML.replace(valueToRepl, replaceValue);
-        
+        four = document.getElementById('textans4').innerHTML;
     }
 }
 
