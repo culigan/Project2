@@ -42,10 +42,11 @@ function getClassic(cat, diff) {
 function getJAnswer(difficulty) {
     var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
     var playerAnswer = document.getElementById('textans').value.toUpperCase();
+    var pointValue = document.getElementById('title').value;
     var score = 0;
 
     if (playerAnswer == apiAnswer) {
-        score = parseInt(difficulty);
+        score = parseInt(pointValue);
     }
 
     $.ajax({
