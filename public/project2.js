@@ -12,6 +12,8 @@ function getQuestion(request, response) {
 }
 
 function getJQuestion() {
+    var data = document.getElementById('all').value
+    
     $.ajax({
         url: 'jService.io',
         type: "GET",
