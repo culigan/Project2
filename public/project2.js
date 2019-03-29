@@ -141,7 +141,6 @@ function findApost() {
     document.getElementById('textans4').innerHTML = document.getElementById('textans4').innerHTML.replace("&amp;quot;", "\"");
     var test = document.getElementById('quest').innerHTML;
     document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace("&amp;quot;", "\"");
-
 }
 
 function findQuotes() {
