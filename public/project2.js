@@ -11,7 +11,7 @@ function getQuestion(request, response) {
         returnQuest = getClassic(cat, diff);
 }
 
-function getJeopardy(cat, diff) {
+/*function getJeopardy(cat, diff) {
     $.ajax({
         url: 'jService.io',
         type: "GET",
@@ -37,7 +37,7 @@ function getClassic(cat, diff) {
             alert('ERROR!');
         }
     });
-}
+}*/
 
 function getJAnswer() {
     try {
