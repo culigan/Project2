@@ -31,6 +31,8 @@ app.post('/getIndex', urlendcodedParser, function (request, response) {
     if (typeof request.session.index === 'undefined') {
         request.session.index = 1;
     }
+    else if (parseInt(request.session.index) == 99)
+        request.session.index = 0;
     else
         request.session.index = parseInt(request.session.index) + 1;
     console.log(request.session.index);
