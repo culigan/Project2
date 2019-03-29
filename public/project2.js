@@ -12,21 +12,21 @@ function getQuestion(request, response) {
 }
 
 function getJQuestion() {
-    var data = document.getElementById('all').value;
-    var data = JSON.stringify(document.getElementById('all').value);
-    var data = JSON.parse(document.getElementById('all').value);
+    var questions = document.getElementById('all').value;    
 
     $.ajax({
-        url: 'jService.io',
-        type: "GET",
-        data: { category: cat, difficulty: diff },
+        url: '/getIndex',
+        type: "POST",
         success: function (data) {
-            document.getElementById('quest').innerHTML = JSON.stringify(data);
+            document.getElementById('quest').value = questions.all[data.index].questions;
+            document.getElementById('hanswer').value = questions.all[data.index].answer;
+            document.getElementById('textans').value = "";
         },
         Error: function () {
             alert('ERROR!');
         }
     });
+
 }
 /*function getJeopardy(cat, diff) {
     $.ajax({
