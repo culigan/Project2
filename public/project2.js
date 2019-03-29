@@ -134,10 +134,11 @@ function initialize() {
 }
 
 function findQuotes() {
-    document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.replace("&quot;", "\"");
+    document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.replace("&quot;", "\"");//&#039
     document.getElementById('textans1').innerHTML = document.getElementById('textans1').innerHTML.replace("&quot;", "\"");
     document.getElementById('textans2').innerHTML = document.getElementById('textans2').innerHTML.replace("&quot;", "\"");
     document.getElementById('textans4').innerHTML = document.getElementById('textans4').innerHTML.replace("&quot;", "\"");
+    var test = document.getElementById('quest').innerHTML;
     document.getElementById('quest').innerHTML = document.getElementById('quest').innerHTML.replace("&quot;", "\"");
 
 }
