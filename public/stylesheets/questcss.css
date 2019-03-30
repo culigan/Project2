@@ -36,7 +36,7 @@
 
    background-color:white;
    font-family:Courier New, Courier, monospace;
-   font-size:60px;
+   font-size:70px;
    text-align:center;
    border-bottom:5px solid black;
 }
@@ -55,7 +55,7 @@ body{
 }
 
 #theader {
-   font-size: 70px;
+   font-size: 35px;
 }
 
 #text {
