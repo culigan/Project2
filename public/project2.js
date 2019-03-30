@@ -146,7 +146,7 @@ function findQuotes(valueToRepl, replaceValue) {
         quest = document.getElementById('quest').innerHTML;
     }
     while (zero.search(valueToRepl) != -1) {
-        document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.rep(valueToRepl, replaceValue);//&#039&amp;quot;
+        document.getElementById('textans0').innerHTML = document.getElementById('textans0').innerHTML.replace(valueToRepl, replaceValue);//&#039&amp;quot;
         zero = document.getElementById('textans0').innerHTML;
     }
     while (one.search(valueToRepl) != -1) {
