@@ -47,15 +47,6 @@ input {
    font-size: 50px;
 }
 
-#header{
-
-   background-color:white;
-   font-family:Courier New, Courier, monospace;
-   font-size:60px;
-   color:red;
-   text-align:center;
-   border-bottom:5px solid black;
-}
 
 #jeopardy, #classic, #back{
    font-size:30px;
