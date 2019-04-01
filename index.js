@@ -128,7 +128,7 @@ function getCCategories(request, response) {
 }
 
 function getCCategoriesFromDb(id, callback) {
-    var sql = "SELECT category_id, categoryname FROM classiccategories";
+    var sql = "SELECT category_id, categoryname FROM classiccategories order by categoryname";
     var sql1 = "SELECT diffname FROM classicdifficulty";
 
 
