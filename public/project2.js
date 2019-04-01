@@ -13,7 +13,7 @@ function getQuestion(request, response) {
 
 function getJQuestion() {
     var questions = JSON.parse(document.getElementById('all').value); 
-
+    document.getElementById('jeopardy').disabled = false;
     $.ajax({
         url: '/getIndex',
         type: "POST",
@@ -58,6 +58,7 @@ function getClassic(cat, diff) {
 
 function getJAnswer() {
     var checked = true;
+    document.getElementById('jeopardy').disabled = true;
     try {
         var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
         var playerAnswer = document.getElementById('textans').value.toUpperCase();
@@ -96,6 +97,7 @@ function getJAnswer() {
 function getCAnswer() {
     var checked = document.getElementById('textans4').checked;
     var score = 0;
+    document.getElementById('jeopardy').disabled = true;
 
     if (checked) {
         score++;           
@@ -123,6 +125,7 @@ function getCAnswer() {
 }
 
 function newQuestion() {
+    document.getElementById('jeopardy').disabled = false;
     location.reload();
     
    
