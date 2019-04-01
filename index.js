@@ -161,7 +161,7 @@ function getJCategories(request, response) {
 }
 
 function getCategoriesFromDb(id, callback) {
-    var sql = "SELECT categoryname, category_id FROM jeopardycategories";
+    var sql = "SELECT categoryname, category_id FROM jeopardycategories order by categoryname";
     var sql1 = "SELECT difficultylevel, levelvalue FROM jeopardydifficulty";
 
 
