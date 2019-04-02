@@ -26,7 +26,6 @@ app.get('/', function (request, response) {
     response.sendFile(__dirname + '/public/home.html');
 });
 app.post('/getIndex', urlendcodedParser, function (request, response) {
-    console.log("start");
 
     if (typeof request.session.index === 'undefined') {
         request.session.index = 1;
@@ -35,7 +34,6 @@ app.post('/getIndex', urlendcodedParser, function (request, response) {
         request.session.index = 0;
     else
         request.session.index = parseInt(request.session.index) + 1;
-    console.log(request.session.index);
     response.send({ index: request.session.index });
 });
 app.get('/selection', function (request, response) {
@@ -65,7 +63,6 @@ app.get('/question', function (request, response) {
         jserv.clues(options, function (error, result) {
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(result.body);
-                console.log("data : " + result.body);
                 jserv.category(category, function (errorT, responseT, resultTitle) {
                     if (!errorT && responseT.statusCode == 200) {
                         response.render('question', ({ category: resultTitle.title, difficulty: data[0].value, answer: data[0].answer, question: data[0].question, type: "Jeopardy", all: result.body}));
