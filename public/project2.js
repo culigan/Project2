@@ -73,7 +73,7 @@ function getJAnswer() {
     document.getElementById('jeopardy').disabled = true;
     try {
         var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
-        var list = ["A ", "THE ", "OF ", "WHAT ", "HOW ", "WHERE ", "THIS ", "WHEN ", "WHY "," IS ", " THE"];
+        var list = ["A ", "THE ", "OF ", "WHAT ", "HOW ", "WHERE ", "THIS ", "WHEN ", "WHY "," IS ", " THE", "WHO "];
         apiAnswer = replaceStringValues(apiAnswer, list);
         
         var playerAnswer = document.getElementById('textans').value.toUpperCase();
