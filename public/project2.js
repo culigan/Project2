@@ -57,7 +57,7 @@ function getClassic(cat, diff) {
 }*/
 
 function replaceStringValues(stringValue, replaceValue) {
-    while (stringValue.search(stringValue) >= 0) {
+    while (stringValue.search(replaceValue) >= 0) {
         stringValue = stringValue.replace(replaceValue, " ");
     }
 }
