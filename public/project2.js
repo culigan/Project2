@@ -60,6 +60,8 @@ function replaceStringValues(stringValue, replaceValue) {
     while (stringValue.search(replaceValue) >= 0) {
         stringValue = stringValue.replace(replaceValue, " ");
     }
+
+    return stringValue;
 }
 
 function getJAnswer() {
@@ -67,14 +69,14 @@ function getJAnswer() {
     document.getElementById('jeopardy').disabled = true;
     try {
         var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
-        replaceStringValues(apiAnswer, "A ");
-        replaceStringValues(apiAnswer, "THE ");
-        replaceStringValues(apiAnswer, "OF ");
+        apiAnswer = replaceStringValues(apiAnswer, "A ");
+        apiAnswer = replaceStringValues(apiAnswer, "THE ");
+        apiAnswer = replaceStringValues(apiAnswer, "OF ");
         
         var playerAnswer = document.getElementById('textans').value.toUpperCase();
-        replaceStringValues(playerAnswer, "A ");
-        replaceStringValues(playerAnswer, "THE ");
-        replaceStringValues(playerAnswer, "OF ");
+        playerAnswer = replaceStringValues(playerAnswer, "A ");
+        playerAnswer = replaceStringValues(playerAnswer, "THE ");
+        playerAnswer = replaceStringValues(playerAnswer, "OF ");
 
         var pointValue = document.getElementById('diffvalue').value;
         var score = 0;
