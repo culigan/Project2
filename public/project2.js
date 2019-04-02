@@ -59,10 +59,12 @@ function getClassic(cat, diff) {
 function replaceStringValues(stringValue, replaceValue) {
     for (var i = 0; i < replaceValue.length; i++) {
         while (stringValue.search(replaceValue[i]) >= 0) {
-            stringValue = stringValue.replace(replaceValue[i], "");
+            stringValue = stringValue.replace(replaceValue[i], " ");
         }
     }
-
+    while (stringValue.search(" ") >= 0) {
+        stringValue = stringValue.replace(" ", "");
+    }
     return stringValue;
 }
 
