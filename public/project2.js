@@ -58,6 +58,8 @@ function getClassic(cat, diff) {
 
 function replaceStringValues(stringValue, replaceValue) {
     while (stringValue.search(stringValue) >= 0) {
+        var test = stringValue.search(stringValue);
+        console.log(test);
         stringValue.replace(replaceValue, " ");
     }
 }
@@ -67,14 +69,14 @@ function getJAnswer() {
     document.getElementById('jeopardy').disabled = true;
     try {
         var apiAnswer = document.getElementById('hanswer').value.toUpperCase();
-        replaceStringValues(apiAnswer, " A ");
-        replaceStringValues(apiAnswer, " THE ");
-        replaceStringValues(apiAnswer, " OF ");
+        replaceStringValues(apiAnswer, "A ");
+        replaceStringValues(apiAnswer, "THE ");
+        replaceStringValues(apiAnswer, "OF ");
         
         var playerAnswer = document.getElementById('textans').value.toUpperCase();
-        replaceStringValues(playerAnswer, " A ");
-        replaceStringValues(playerAnswer, " THE ");
-        replaceStringValues(playerAnswer, " OF ");
+        replaceStringValues(playerAnswer, "A ");
+        replaceStringValues(playerAnswer, "THE ");
+        replaceStringValues(playerAnswer, "OF ");
 
         var pointValue = document.getElementById('diffvalue').value;
         var score = 0;
